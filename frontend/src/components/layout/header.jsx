@@ -9,8 +9,9 @@ const Header = () => {
       <div className="header-left">
         <a href="/">LOGO</a>
         <NavLink to="/">Trang chủ</NavLink>
-        <NavLink to="/login">Dịch vụ</NavLink>
-        <NavLink to="/register">Thông tin</NavLink>
+        <NavLink to="/service">Dịch vụ</NavLink>
+        <NavLink to="/information">Thông tin</NavLink>
+        <NavLink to="/track_order">Theo dõi đơn hàng</NavLink>
       </div>
       <div className="header-right">
         <NavLink to="/login">Login</NavLink>

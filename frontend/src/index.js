@@ -9,6 +9,9 @@ import {
 } from "react-router-dom";
 import LoginPage from './pages/login';
 import RegisterPage from './pages/register';
+import TrackOrderPage from './pages/jack_order';
+import ServicesPage from './pages/service';
+import InformationPage from './pages/information';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +25,18 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <RegisterPage />,
+  },
+  {
+    path: "/service",
+    element: <ServicesPage />,
+  },
+  {
+    path: "/information",
+    element: <InformationPage />,
+  },
+  {
+    path: "/track_order",
+    element: <TrackOrderPage />,
   },
   {
     path: "/",
