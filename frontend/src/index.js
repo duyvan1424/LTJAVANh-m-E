@@ -17,6 +17,20 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    children: [
+      {
+        path: "/service",
+        element: <ServicesPage />,
+      },
+      {
+        path: "/information",
+        element: <InformationPage />,
+      },
+      {
+        path: "/track_order",
+        element: <TrackOrderPage />,
+      },
+    ]
   },
   {
     path: "/login",
@@ -26,18 +40,7 @@ const router = createBrowserRouter([
     path: "/register",
     element: <RegisterPage />,
   },
-  {
-    path: "/service",
-    element: <ServicesPage />,
-  },
-  {
-    path: "/information",
-    element: <InformationPage />,
-  },
-  {
-    path: "/track_order",
-    element: <TrackOrderPage />,
-  },
+
   {
     path: "/",
     element: <div>Hello world!</div>,
