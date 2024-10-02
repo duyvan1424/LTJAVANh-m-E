@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom'
+import React from 'react';
+import { NavLink } from 'react-router-dom'
 import '../styles/login.css'
 import Header from '../components/layout/header';
 
 const LoginPage = () => {
 
     return (
-        <div className="container">
+        <div>
+            <div><Header/></div>
+  <div className="container pt-20">
             <div class="wrapper">
                 <form action="">
                     <h1>Login</h1>
@@ -22,7 +24,7 @@ const LoginPage = () => {
                         <label>
                             <input type="checkbox" /> Remember me
                         </label>
-                        <a href="#">Forgot password? </a>
+                        <a href="hi">Forgot password? </a>
                     </div>
                     <button type="submit" class="btn">Login</button>
                     <div class="register-link">
@@ -32,6 +34,8 @@ const LoginPage = () => {
             </div>
 
         </div>
+        </div>
+      
     )
 
 }

@@ -1,9 +1,12 @@
-import '../styles/register.css'
-import { Link, NavLink } from 'react-router-dom'
 import Header from '../components/layout/header';
+import '../styles/register.css'
+import { NavLink } from 'react-router-dom'
+
 const RegisterPage = () => {
     return (
-        <div className="container">
+       <div>
+        <div><Header/></div>
+         <div className="container pt-20">
             <div className="wrapper">
                 <form action="">
                     <h1>Register</h1>
@@ -21,7 +24,7 @@ const RegisterPage = () => {
                     </div>
                     <div className="remember-forgot">
                         <label>
-                            <input type="checkbox" /> I agree to the <a href="#">Terms & Conditions</a>
+                            <input type="checkbox" /> I agree to the <a href="hi">Terms & Conditions</a>
                         </label>
                     </div>
                     <button type="submit" className="btn">Register</button>
@@ -31,6 +34,7 @@ const RegisterPage = () => {
                 </form>
             </div>
         </div>
+       </div>
     )
 }
 export default RegisterPage;
