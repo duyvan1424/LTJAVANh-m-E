@@ -5,9 +5,7 @@ import Footer from '../components/layout/footer'
 function Home() {
   return (
     <div>
-      okokokokokokokok
-      {/* <Header/>
-      <Footer/> */}
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     </div>
   )
 }
