@@ -1,9 +1,21 @@
-import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
-import './header.css'
-import logo from '../../assets/logo.png'
+import React from 'react';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import './header.css';
 
-const Header = () => {
+const Header = ({ scrollToProduct }) => {
+  const location = useLocation(); // Lấy thông tin vị trí hiện tại
+  const navigate = useNavigate(); // Để điều hướng giữa các trang
+
+  const handleServiceClick = () => {
+    if (location.pathname === '/') {
+      // Nếu đang ở trang chủ, cuộn xuống sản phẩm
+      scrollToProduct();
+    } else {
+      // Nếu không, điều hướng về trang chủ 
+      navigate('/');
+    }
+  };
+
   return (
     <header className="header">
       <nav className="header-nav">
@@ -32,4 +44,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Header;
