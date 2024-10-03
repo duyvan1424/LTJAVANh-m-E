@@ -1,4 +1,4 @@
-.header {
+.header-nav {
     position: relative;
     left: 0;
     top: 0;
@@ -6,8 +6,10 @@
     background-color: black;
     text-align: left;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
+
+
 
 .header a {
     color: white;

@@ -16,6 +16,7 @@ function Home() {
 
   return (
     <div>
+
       <Header scrollToProduct={scrollToProduct} />   {/* Truyền hàm cuộn vào Header */}
     
       <Carousel />
