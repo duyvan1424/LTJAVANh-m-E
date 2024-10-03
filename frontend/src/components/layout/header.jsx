@@ -5,18 +5,29 @@ import logo from '../../assets/logo.png'
 
 const Header = () => {
   return (
-    <div className="header">
-      <div className="header-left">
-        <a href="/">LOGO</a>
-        <NavLink to="/">Trang chủ</NavLink>
-        <NavLink to="/service">Dịch vụ</NavLink>
-        <NavLink to="/information">Thông tin</NavLink>
-        <NavLink to="/track_order">Theo dõi đơn hàng</NavLink>
-      </div>
-      <div className="header-right">
-        <NavLink to="/login">Login</NavLink>
-      </div>
-    </div>
+    <header className="header">
+      <nav className="header-nav">
+        <div className="header-nav-left">
+          <NavLink href="/">LOGO</NavLink>
+        </div>
+        <div className="header-nav-mid">
+          <NavLink to="/" className="nav-link">Trang chủ</NavLink>
+          <NavLink to="/service" className="nav-link">
+            Dịch vụ
+            {/* <ul className='submenu'>
+            <li><NavLink className="nav-link">Vận chuyển nội địa</NavLink></li>
+            <li><NavLink className="nav-link">Vận chuyển quốc tế</NavLink></li>
+          </ul> */}
+          </NavLink>
+
+          <NavLink to="/information" className="nav-link">Thông tin</NavLink>
+          <NavLink to="/track_order" className="nav-link">Theo dõi đơn hàng</NavLink>
+        </div>
+        <div className="header-nav-right">
+          <NavLink to="/login" className="nav-link">Login</NavLink>
+        </div>
+      </nav>
+    </header>
 
   )
 }

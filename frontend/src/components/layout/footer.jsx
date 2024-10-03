@@ -4,7 +4,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 
 function Footer() {
   return (
-    <footer className="bg-gray-100 text-gray-800"> 
+    <footer className="bg-gray-100 text-gray-800">
       <div className="container mx-auto py-4"> {/* Sử dụng container để căn giữa */}
         <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between">
           {/* Thông tin công ty */}

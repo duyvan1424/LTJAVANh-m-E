@@ -7,12 +7,12 @@ import Product from '../components/layout/product'
 function Home() {
   return (
     <div>
-      <Header/>
-      <Carousel/>
-    <Product/>
+      <Header />
+      <Carousel />
+      <Product />
 
-      <Footer/>
-      </div>
+      <Footer />
+    </div>
   )
 }
 
