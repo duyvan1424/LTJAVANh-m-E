@@ -1,24 +1,40 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { NavLink } from 'react-router-dom'
 import '../styles/login.css'
+import Header from '../components/layout/header';
 
 const LoginPage = () => {
 
     return (
-        <div class="login-container">
-            <h2>Login</h2>
-            <form action="/login" method="post">
-                <div class="input-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required />
+        <div>
+            <div className="login-container">
+                <div class="wrapper">
+                    <form action="">
+                        <h1>Login</h1>
+                        <div class="input-box">
+                            <input type="text" placeholder="Username" required />
+                            <i class='bx bxs-user'></i>
+                        </div>
+                        <div class="input-box">
+                            <input type="password" placeholder="Password" required />
+                            <i class='bx bxs-lock-alt'></i>
+                        </div>
+                        <div class="remember-forgot">
+                            <label>
+                                <input type="checkbox" /> Remember me
+                            </label>
+                            <a href="hi">Forgot password? </a>
+                        </div>
+                        <button type="submit" class="btn">Login</button>
+                        <div class="register-link">
+                            <p>Don't have an account? <NavLink to="/register">Register</NavLink></p>
+                        </div>
+                    </form >
                 </div>
-                <div class="input-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required />
-                </div>
-                <button type="submit">Login</button>
-            </form>
-            <p class="register-text">Don't have an account? <a href="#">Register here</a></p>
+
+            </div>
         </div>
+
     )
 
 }
