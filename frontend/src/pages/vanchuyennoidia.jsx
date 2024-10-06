@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import ContactForm from './ContactForm';
-import FeedbackForm from './FeedbackForm';
-import './ShippingServicePage.css'; // Thêm file CSS cho trang
+// import ContactForm from './ContactForm';
+// import FeedbackForm from './FeedbackForm';
+// import '../styles/vanchuyennoidia.css'; // Thêm file CSS cho trang
 
 const ShippingServicePage = () => {
     const [trackingNumber, setTrackingNumber] = useState('');
@@ -24,7 +24,7 @@ const ShippingServicePage = () => {
             <section>
                 <h2>Mô Tả Dịch Vụ</h2>
                 <p>
-                    Chúng tôi cung cấp dịch vụ giao hàng nhanh và giao hàng tiết kiệm. 
+                    Chúng tôi cung cấp dịch vụ giao hàng nhanh và giao hàng tiết kiệm.
                     Với đội ngũ giao hàng chuyên nghiệp, bạn có thể yên tâm về thời gian và độ an toàn của hàng hóa.
                 </p>
                 <p>
@@ -86,7 +86,7 @@ const ShippingServicePage = () => {
             <section>
                 <h2>Chính Sách Vận Chuyển và Hoàn Trả</h2>
                 <p>
-                    Chúng tôi cam kết bảo hiểm hàng hóa trong quá trình vận chuyển. 
+                    Chúng tôi cam kết bảo hiểm hàng hóa trong quá trình vận chuyển.
                     Nếu hàng hóa bị hư hỏng, chúng tôi sẽ hoàn tiền theo chính sách hoàn trả của chúng tôi.
                 </p>
             </section>
@@ -96,12 +96,12 @@ const ShippingServicePage = () => {
                 <p>Số điện thoại: 0123 456 789</p>
                 <p>Email: contact@example.com</p>
                 <p>Địa chỉ: 123 Đường ABC, Thành phố XYZ</p>
-                <ContactForm />
+                {/* <ContactForm /> */}
             </section>
 
             <section>
                 <h2>Đánh Giá và Phản Hồi</h2>
-                <FeedbackForm />
+                {/* <FeedbackForm /> */}
             </section>
         </div>
     );
