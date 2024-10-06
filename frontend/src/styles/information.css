@@ -1,0 +1,73 @@
+.information-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    /* Trung tâm hóa nội dung */
+    padding: 0 20px;
+    /* Cách 20px mỗi bên */
+    font-size: 16px;
+    line-height: 1.5;
+    /* Cải thiện khoảng cách dòng */
+}
+
+h1 {
+    font-size: 40px;
+    text-align: center;
+    margin: 20px 0;
+    /* Thay đổi để giảm khoảng cách giữa các phần */
+}
+
+.intro,
+.team,
+.mission {
+    margin-bottom: 40px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.intro img {
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 15px;
+    /* Thêm khoảng cách dưới tiêu đề */
+}
+
+.team {
+    display: flex;
+    flex-direction: column;
+    /* Chuyển thành cột trên màn hình nhỏ */
+}
+
+.team-members {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* Cho phép gói lại */
+}
+
+.team-member {
+    width: calc(33.33% - 20px);
+    /* Chiều rộng của mỗi thành viên */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.team-member img {
+    width: 100%;
+    height: auto;
+    border-radius: 5%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .team-member {
+        width: 100%;
+        /* 100% trên màn hình nhỏ */
+        margin-bottom: 20px;
+    }
+}
