@@ -1,4 +1,3 @@
-import Header from '../components/layout/header';
 import '../styles/register.css'
 import { NavLink } from 'react-router-dom'
 
@@ -21,7 +20,7 @@ const RegisterPage = () => {
                             <input type="password" placeholder="Confirm Password" required />
                             <i className='bx bxs-lock'></i>
                         </div>
-                        <div className="remember-forgot">
+                        <div className="agree-condition">
                             <label>
                                 <input type="checkbox" /> I agree to the <a href="hi">Terms & Conditions</a>
                             </label>
