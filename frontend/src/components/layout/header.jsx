@@ -27,14 +27,7 @@ const Header = ({ scrollToProduct }) => {
         </NavLink>
         <div className="header-nav-mid">
           <NavLink to="/" className="nav-link">TRANG CHỦ</NavLink>
-          <NavLink to="/domestic-shipping" className="nav-link">
-            DỊCH VỤ
-            {/* <ul className='submenu'>
-            <li><NavLink className="nav-link">Vận chuyển nội địa</NavLink></li>
-            <li><NavLink className="nav-link">Vận chuyển quốc tế</NavLink></li>
-          </ul> */}
-          </NavLink>
-
+            <a  onClick={handleServiceClick}>DỊCH VỤ</a> {/* Gọi hàm xử lý click */}
           <NavLink to="/information" className="nav-link">THÔNG TIN</NavLink>
           <NavLink to="/track-order" className="nav-link">THEO DÕI ĐƠN HANG</NavLink>
         </div>
