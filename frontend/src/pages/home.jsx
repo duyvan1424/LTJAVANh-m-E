@@ -16,11 +16,12 @@ function Home() {
 
   return (
     <div>
-
-      <Header scrollToProduct={scrollToProduct} />   {/* Truyền hàm cuộn vào Header */}
-    
+      <Header scrollToProduct={scrollToProduct} />{" "}
+      {/* Truyền hàm cuộn vào Header */}
       <Carousel />
-      <div ref={productRef}>  {/* Gán ref cho div chứa Product */}
+      <div ref={productRef}>
+        {" "}
+        {/* Gán ref cho div chứa Product */}
         <Product />
       </div>
       <Footer />
