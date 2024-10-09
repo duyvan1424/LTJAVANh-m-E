@@ -1,73 +1,154 @@
 .information-container {
+    line-height: 1.6;
+    color: #333;
     max-width: 1400px;
     margin: 0 auto;
-    /* Trung tâm hóa nội dung */
-    padding: 0 20px;
-    /* Cách 20px mỗi bên */
-    font-size: 16px;
-    line-height: 1.5;
-    /* Cải thiện khoảng cách dòng */
-}
-
-h1 {
-    font-size: 40px;
-    text-align: center;
-    margin: 20px 0;
-    /* Thay đổi để giảm khoảng cách giữa các phần */
-}
-
-.intro,
-.team,
-.mission {
-    margin-bottom: 40px;
-    background: white;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
 }
 
-.intro img {
-    width: 100%;
-}
-
-h2 {
+.information-header {
     text-align: center;
-    font-size: 22px;
-    margin-bottom: 15px;
-    /* Thêm khoảng cách dưới tiêu đề */
+    padding: 40px 0;
+    background-color: #fbe2da;
+    border-radius: 10px;
+    margin-bottom: 30px;
 }
 
-.team {
+.information-header h1 {
+    font-size: 28px;
+    color: #e55322;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.text-section,
+.image-section {
+    flex: 1;
+    min-width: 300px;
+    margin: 15px;
+}
+
+.text-section {
+    padding: 20px;
+    text-align: justify;
+}
+
+.image-section {
+    display: flex;
+    justify-content: center;
+}
+
+
+.image-section img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-highlights {
+    background-color: #fbe2da;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.service-highlights h2,
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.service-highlights-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.service-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    flex: 1;
+    min-width: 250px;
+}
+
+
+.service-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    /* Chuyển thành cột trên màn hình nhỏ */
+}
+
+
+.team-section {
+    margin-top: 30px;
+}
+
+.team-section h2 {
+    text-align: center;
+    font-size: 22px;
 }
 
 .team-members {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
-    /* Cho phép gói lại */
 }
 
 .team-member {
-    width: calc(33.33% - 20px);
-    /* Chiều rộng của mỗi thành viên */
-    margin-bottom: 20px;
+    background-color: white;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
+    max-width: 250px;
 }
 
-.team-member img {
-    width: 100%;
-    height: auto;
-    border-radius: 5%;
+.team-member-image {
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
-/* Responsive */
+.testimonial {
+    font-style: italic;
+    background-color: #fbe2da;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
 @media (max-width: 768px) {
-    .team-member {
+    .content {
+        flex-direction: column;
+    }
+
+    .text-section,
+    .image-section {
         width: 100%;
-        /* 100% trên màn hình nhỏ */
-        margin-bottom: 20px;
+        margin: 0;
+    }
+
+    .team-members {
+        flex-direction: column;
+        /* Stack members vertically on small screens */
+        align-items: center;
+        /* Center align on small screens */
+    }
+
+    .team-member {
+        max-width: 90%;
+        /* Allow more width on smaller screens */
     }
 }
