@@ -15,7 +15,7 @@ function Product() {
           </div>
           <h3 className='service-title'>Vận chuyển trong nước</h3>
           <p className='service-description'>Dịch vụ vận chuyển cá Koi an toàn và nhanh chóng đến mọi tỉnh thành trong Việt Nam.</p>
-          <button className='btn'>Tìm hiểu thêm</button>
+          <a href="/domestic-shipping"><button className='btn'>Tìm hiểu thêm</button></a>
         </div>
 
         <div className='shipping-service'>
@@ -24,7 +24,7 @@ function Product() {
           </div>
           <h3 className='service-title'>Vận chuyển quốc tế</h3>
           <p className='service-description'>Dịch vụ vận chuyển cá Koi đến các quốc gia trên toàn thế giới, đảm bảo an toàn và tuân thủ quy định.</p>
-          <button className='btn'>Tìm hiểu thêm</button>
+         <a href="/international-shipping"> <button className='btn'>Tìm hiểu thêm</button></a>
         </div>
 
       </div>
