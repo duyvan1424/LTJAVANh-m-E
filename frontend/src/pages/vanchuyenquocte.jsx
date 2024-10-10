@@ -4,83 +4,185 @@ const ShippingServicePage = () => {
     const [trackingNumber, setTrackingNumber] = useState('');
     const [trackingResult, setTrackingResult] = useState('');
 
+  
     const handleTrackingSubmit = (e) => {
         e.preventDefault();
         if (trackingNumber) {
-            setTrackingResult(`Trạng thái đơn hàng với số theo dõi "${trackingNumber}" là: Đang vận chuyển đến chi nhánh gần nhất.`);
+            setTrackingResult(`Trạng thái đơn hàng với số theo dõi "${trackingNumber}" là: Đang giao đến Nhật Bản.`);
         } else {
             setTrackingResult('Vui lòng nhập số theo dõi.');
         }
     };
 
+ 
+    const styles = {
+        container: {
+            margin: '0 auto',
+            maxWidth: '800px',
+            padding: '20px',
+            fontFamily: 'Arial, sans-serif',
+            lineHeight: '1.6',
+        },
+        header: {
+            textAlign: 'center',
+            marginBottom: '40px',
+        },
+        mainTitle: {
+            color: '#d9534f',
+        },
+        mainDescription: {
+            fontSize: '18px',
+            marginBottom: '20px',
+        },
+        section: {
+            marginBottom: '40px',
+        },
+        table: {
+            width: '100%',
+            borderCollapse: 'collapse',
+            margin: '20px 0',
+        },
+        th: {
+            border: '1px solid #ddd',
+            padding: '12px',
+            backgroundColor: '#f2f2f2',
+        },
+        td: {
+            border: '1px solid #ddd',
+            padding: '12px',
+            textAlign: 'center',
+        },
+        trackingForm: {
+            display: 'flex',
+            justifyContent: 'center',
+            marginBottom: '20px',
+        },
+        trackingInput: {
+            padding: '10px',
+            border: '1px solid #ddd',
+            width: '70%',
+            marginRight: '10px',
+        },
+        trackingButton: {
+            padding: '10px 20px',
+            backgroundColor: '#d9534f',
+            color: 'white',
+            border: 'none',
+            cursor: 'pointer',
+        },
+        trackingResult: {
+            textAlign: 'center',
+            fontWeight: 'bold',
+            marginTop: '20px',
+            color: 'green',
+        },
+        h2: {
+            color: '#d9534f',
+        },
+    };
+
     return (
-        <div className="shipping-service-page">
-            <h1>Dịch Vụ Vận Chuyển Hàng Quốc Tế</h1>
+        <div style={styles.container}>
 
-            <section>
-                <h2>Mô Tả Dịch Vụ</h2>
+            <header style={styles.header}>
+                <h1 style={styles.mainTitle}>Dịch Vụ Vận Chuyển Quốc Tế Việt-Nhật</h1>
+                <p style={styles.mainDescription}>
+                    Dịch vụ vận chuyển chuyên nghiệp giữa Việt Nam và Nhật Bản, với các cơ sở tại Hokkaido, Tokyo, và Hiroshima.
+                </p>
+            </header>
+
+            <section style={styles.section}>
+                <h2 style={styles.h2}>Mô Tả Dịch Vụ</h2>
                 <p>
-                    Chúng tôi cung cấp dịch vụ vận chuyển hàng hóa chuyên nghiệp giữa các chi nhánh của chúng tôi tại Nhật Bản (Hokkaido, Tokyo, Hiroshima). Khách hàng có thể tự đưa hàng đến chi nhánh hoặc sử dụng dịch vụ nhận hàng tận nơi với một khoản phí bổ sung.
+                    Chúng tôi cung cấp dịch vụ vận chuyển quốc tế chuyên biệt giữa Việt Nam và Nhật Bản. Đội ngũ chuyên nghiệp và mạng lưới rộng khắp giúp đảm bảo hàng hóa của bạn đến nơi an toàn và nhanh chóng.
                 </p>
                 <p>
-                    Đối với dịch vụ vận chuyển hàng hóa đặc biệt như cá cảnh, nhân viên sẽ kiểm tra sức khỏe và các giấy tờ liên quan trước khi tiến hành vận chuyển. Chúng tôi đảm bảo hàng hóa sẽ được vận chuyển an toàn và nhanh chóng.
+                    Các cơ sở chính của chúng tôi tại Nhật Bản bao gồm:
                 </p>
-            </section>
-
-            <section>
-                <h2>Các Chi Nhánh Chính</h2>
                 <ul>
                     <li>Hokkaido</li>
                     <li>Tokyo</li>
                     <li>Hiroshima</li>
                 </ul>
                 <p>
-                    Hàng hóa sẽ được xử lý và vận chuyển đến chi nhánh gần với địa chỉ người nhận nhất trước khi được giao tận nơi hoặc được khách hàng tự đến lấy.
+                    Chúng tôi phục vụ các khách hàng cá nhân và doanh nghiệp với cam kết về chất lượng và thời gian giao hàng.
                 </p>
             </section>
 
-            <section>
-                <h2>Theo Dõi Đơn Hàng</h2>
-                <form onSubmit={handleTrackingSubmit}>
+            <section style={styles.section}>
+                <h2 style={styles.h2}>Bảng Giá Dịch Vụ</h2>
+                <table style={styles.table}>
+                    <thead>
+                        <tr>
+                            <th style={styles.th}>Dịch Vụ</th>
+                            <th style={styles.th}>Giá (VNĐ)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style={styles.td}>Giao hàng nhanh</td>
+                            <td style={styles.td}>500.000</td>
+                        </tr>
+                        <tr>
+                            <td style={styles.td}>Giao hàng tiết kiệm</td>
+                            <td style={styles.td}>350.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    Chúng tôi thường xuyên có các chương trình khuyến mãi, hãy theo dõi để không bỏ lỡ!
+                </p>
+            </section>
+
+            <section style={styles.section}>
+                <h2 style={styles.h2}>Theo Dõi Đơn Hàng</h2>
+                <form onSubmit={handleTrackingSubmit} style={styles.trackingForm}>
                     <input
                         type="text"
                         placeholder="Nhập số theo dõi"
                         value={trackingNumber}
                         onChange={(e) => setTrackingNumber(e.target.value)}
+                        style={styles.trackingInput}
                         required
                     />
-                    <button type="submit">Theo Dõi</button>
+                    <button type="submit" style={styles.trackingButton}>Theo Dõi</button>
                 </form>
-                {trackingResult && <p>{trackingResult}</p>}
+                {trackingResult && <p style={styles.trackingResult}>{trackingResult}</p>}
             </section>
 
-            <section>
-                <h2>Quy Trình Gửi và Nhận Hàng</h2>
-                <h3>Gửi Hàng</h3>
-                <p>
-                    - Khách hàng mang cá cảnh đến chi nhánh, nhân viên sẽ kiểm tra tình trạng sức khỏe và các giấy tờ liên quan trước khi tiến hành đóng gói. <br />
-                    - Khách hàng ký hóa đơn viết tay xác nhận tình trạng hàng hóa và đồng ý với quy trình vận chuyển. <br />
-                    - Hàng hóa sẽ được vận chuyển đến chi nhánh gần nhất với vị trí người nhận hoặc trực tiếp đến người nhận.
-                </p>
-                <h3>Nhận Hàng</h3>
-                <p>
-                    - Sau khi ký hóa đơn điện tử xác nhận nhận hàng, khách hàng sẽ nhận được cá cảnh và các giấy chứng nhận liên quan như giấy chứng nhận xuất xứ, giấy kiểm tra sức khỏe, giải thưởng (nếu có).<br />
-                    - Nhân viên sẽ hỗ trợ khách hàng cho đến khi cá thích nghi với môi trường mới.
-                </p>
+            <section style={styles.section}>
+                <h2 style={styles.h2}>Hướng Dẫn Sử Dụng</h2>
+                <p>Cách đặt hàng, thanh toán và nhận hàng:</p>
+                <ol>
+                    <li>Truy cập vào trang đặt hàng của chúng tôi.</li>
+                    <li>Điền thông tin sản phẩm và địa chỉ giao hàng tại Nhật Bản.</li>
+                    <li>Chọn hình thức thanh toán.</li>
+                    <li>Xác nhận đơn hàng và chờ nhận hàng tại địa chỉ bạn yêu cầu ở Nhật Bản.</li>
+                </ol>
             </section>
 
-            <section>
-                <h2>Chính Sách Vận Chuyển và Bảo Hiểm</h2>
+
+            <section style={styles.section}>
+                <h2 style={styles.h2}>Chính Sách Vận Chuyển và Hoàn Trả</h2>
                 <p>
-                    Chúng tôi cam kết bảo hiểm hàng hóa trong quá trình vận chuyển. Nếu hàng hóa bị hư hỏng hoặc thất lạc, chúng tôi sẽ hoàn tiền hoặc gửi lại sản phẩm theo chính sách hoàn trả của công ty.
+                    Chúng tôi cam kết bảo hiểm hàng hóa trong quá trình vận chuyển quốc tế. Nếu hàng hóa bị hư hỏng, chúng tôi sẽ hoàn tiền theo chính sách hoàn trả của chúng tôi.
                 </p>
             </section>
 
-            <section>
-                <h2>Liên Hệ</h2>
-                <p>Số điện thoại: +84 123 456 789</p>
+            <section style={styles.section}>
+                <h2 style={styles.h2}>Liên Hệ</h2>
+                <p>Số điện thoại: 0123 456 789</p>
                 <p>Email: contact@example.com</p>
-                <p>Địa chỉ: 123 Đường ABC, Thành phố XYZ, Việt Nam</p>
+                <p>
+                    Địa chỉ các văn phòng của chúng tôi tại Nhật Bản: Hiroshima: Đường DEF, Thành phố Hiroshima
+                </p>
+            </section>
+
+            <section style={styles.section}>
+                <h2 style={styles.h2}>Đánh Giá và Phản Hồi</h2>
+                <p>
+                    Chúng tôi trân trọng mọi ý kiến đóng góp của khách hàng để cải thiện chất lượng dịch vụ. Hãy để lại phản hồi của bạn để chúng tôi phục vụ bạn tốt hơn!
+                </p>
             </section>
         </div>
     );

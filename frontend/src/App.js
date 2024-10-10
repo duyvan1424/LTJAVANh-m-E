@@ -8,6 +8,7 @@ import Home from './pages/home';
 import DomesticShipping from './pages/domestic-shipping';
 import ShippingServicePage from './pages/vanchuyennoidia';
 import InternationalShipping from './pages/international-shipping';
+import PhieuguiKH from './pages/phieuguiKH';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path="/track-order" element={<TrackOrderPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="/phieugui" element={<PhieuguiKH/>}/>
     </Routes>
   );
 }
