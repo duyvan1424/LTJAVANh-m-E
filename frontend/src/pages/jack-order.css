@@ -1,0 +1,39 @@
+.body {
+  background-image: url(../assets/background_order.jpg);
+  background-size: cover;
+  height: 100vh;
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: center;
+  text-align: center;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 300px; /* Chiều rộng của ô nhập */
+}
+.search-button {
+  padding: 10px 15px;
+  margin-left: 5px;
+  font-size: 16px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.search-button:hover {
+  background-color: #4cae4c; /* Màu nền khi hover */
+}

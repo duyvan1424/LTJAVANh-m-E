@@ -1,0 +1,16 @@
+.wrapper .agree-condition {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -10px 0 10px;
+
+}
+
+.agree-condition a {
+    color: black;
+    text-decoration: none;
+}
+
+.agree-condition a:hover {
+    text-decoration: underline;
+}

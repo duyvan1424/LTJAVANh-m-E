@@ -1,0 +1,8 @@
+.hero {
+    background-image: url(/src/assets/koikoi2.jpg);
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
