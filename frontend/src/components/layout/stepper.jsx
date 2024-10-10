@@ -5,7 +5,7 @@ import "./stepper.css";
 const steps = ["đặt hàng", "giao hàng", "nhận hàng"];
 const stepCurrent = [1];
 
-const MyStepper = () => {
+const   MyStepper = () => {
   return (
     <div className="stepper">
       <Stepper activeStep={0}>
