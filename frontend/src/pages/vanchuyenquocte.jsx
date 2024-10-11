@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ShippingServicePage = () => {
+const Vanchuyenquocte = () => {
     const [trackingNumber, setTrackingNumber] = useState('');
     const [trackingResult, setTrackingResult] = useState('');
 
@@ -188,4 +188,4 @@ const ShippingServicePage = () => {
     );
 };
 
-export default ShippingServicePage;
+export default Vanchuyenquocte;
