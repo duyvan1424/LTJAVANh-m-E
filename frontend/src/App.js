@@ -9,6 +9,7 @@ import ShippingServicePage from './pages/vanchuyennoidia';
 import PhieuguiKH from './pages/phieuguiKH';
 import Vanchuyennoidia from './pages/vanchuyennoidia';
 import Vanchuyenquocte from './pages/vanchuyenquocte';
+import OrderHistory from './pages/OrderHistory';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/phieugui" element={<PhieuguiKH/>}/>
+      <Route path="/history" element={<OrderHistory/>}/>
     </Routes>
   );
 }

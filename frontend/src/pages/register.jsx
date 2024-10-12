@@ -1,5 +1,5 @@
-import '../styles/register.css'
-import { NavLink } from 'react-router-dom'
+import '../styles/register.css';
+import { NavLink } from 'react-router-dom';
 
 const RegisterPage = () => {
     return (
@@ -11,6 +11,10 @@ const RegisterPage = () => {
                         <div className="input-box">
                             <input type="text" placeholder="Username" required />
                             <i className='bx bxs-user'></i>
+                        </div>
+                        <div className="input-box">
+                            <input type="email" placeholder="Email" required />
+                            <i className='bx bxs-envelope'></i>
                         </div>
                         <div className="input-box">
                             <input type="password" placeholder="Password" required />
@@ -33,6 +37,7 @@ const RegisterPage = () => {
                 </div>
             </div>
         </div>
-    )
+    );
 }
+
 export default RegisterPage;
