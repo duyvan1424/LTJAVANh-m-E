@@ -25,15 +25,16 @@ const Vanchuyennoidia = () => {
         header: {
             textAlign: 'center',
             marginBottom: '40px',
+            width: 'auto',
             position: 'relative',
             display: 'flex',
-            alignItems: 'center', // Căn giữa theo chiều dọc
-            justifyContent: 'space-between', // Căn giữa theo chiều ngang
+            alignItems: 'center', 
+            justifyContent: 'space-between',
         },
         mainTitle: {
             color: '#d9534f',
             fontSize: '60px',
-            margin: '0', // Bỏ margin để căn chỉnh dễ hơn
+            margin: '0', 
         },
         mainDescription: {
             fontSize: '20px',
@@ -110,10 +111,12 @@ const Vanchuyennoidia = () => {
         <div style={styles.container}>
             <header style={styles.header}>
                 <h1 style={styles.mainTitle}><b>Giao Hàng Nội Địa</b></h1>
-                <img src={Image} alt="Mô tả ảnh" style={{ width: '600px', height: '200px' }} />
+                <img src={Image} alt="Mô tả ảnh" style={{ width: '800px', height: '300px' }} />
             </header>
             <p style={styles.mainDescription}>
-                Dịch vụ giao hàng uy tín, nhanh chóng và tiết kiệm cho khách hàng cá nhân và doanh nghiệp.
+            Công ty vận chuyển của chúng tôi tự hào là một đơn vị chuyên nghiệp, đáng tin cậy trong việc vận chuyển cá cảnh, 
+            đặc biệt là cá Koi – loài cá được coi là biểu tượng của may mắn và thịnh vượng. Với niềm đam mê và sự tận tâm, 
+            chúng tôi không chỉ đảm bảo cá của bạn được vận chuyển an toàn mà còn trải nghiệm dịch vụ chất lượng hàng đầu.
             </p>
             <div style={styles.callToAction}>
                 <button style={styles.buttonPrimary} onClick={() => alert('Giao Hàng Ngay!')}>
@@ -172,7 +175,7 @@ const Vanchuyennoidia = () => {
                     <h2 style={styles.footerHeading}><b>Liên Hệ</b></h2>
                     <p>Số điện thoại: +84 123 456 789</p>
                     <p>Email: contact@example.com</p>
-                    <p>Địa chỉ: Văn phòng: Tầng 5, Tòa nhà IMC, 62 Trần Quang Khải</p>
+                    <p>Địa chỉ: Tầng 5, Tòa nhà IMC, 62 Trần Quang Khải</p>
                 </div>
 
                 <div style={styles.footerSection}>
