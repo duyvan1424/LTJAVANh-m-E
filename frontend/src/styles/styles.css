@@ -6,6 +6,7 @@
     margin: 0 auto;
 }
 
-html {
+body {
     font-family: "Poppins", sans-serif;
+    padding-top: 64px;
 }
