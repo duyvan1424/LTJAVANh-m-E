@@ -3,19 +3,40 @@ import './OrderHistory.css';
 
 const OrderHistory = () => {
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch('/api/orders')
-      .then(response => response.json())
-      .then(data => setOrders(data))
-      .catch(error => console.error('Error fetching orders:', error));
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          setOrders(data);
+          setLoading(false);
+        })
+        .catch(error => {
+          setError('Error fetching orders. Please try again later.');
+          setLoading(false);
+        });
   }, []);
 
+  if (loading) {
+    return <div className="order-history"><h2>Loading...</h2></div>;
+  }
+
+  if (error) {
+    return <div className="order-history"><h2>{error}</h2></div>;
+  }
+
   return (
-    <div className="order-history">
-      <h2>Lịch sử đơn hàng</h2>
-      <table>
-        <thead>
+      <div className="order-history">
+        <h2>Lịch sử đơn hàng</h2>
+        <table>
+          <thead>
           <tr>
             <th>Mã đơn</th>
             <th>Bên nhận</th>
@@ -24,27 +45,27 @@ const OrderHistory = () => {
             <th>Tổng phí dịch vụ</th>
             <th>Thu hộ/COD</th>
           </tr>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
           {orders.length ? (
-            orders.map((order, index) => (
-              <tr key={index}>
-                <td>{order.id}</td>
-                <td>{order.recipient} <br /> {order.phone} - {order.location}</td>
-                <td>{order.sendPoint}</td>
-                <td>{order.receivePoint}</td>
-                <td>{order.serviceFee}</td>
-                <td>{order.cod}</td>
-              </tr>
-            ))
+              orders.map((order, index) => (
+                  <tr key={index}>
+                    <td>{order.id}</td>
+                    <td>{order.recipient} <br /> {order.phone} - {order.location}</td>
+                    <td>{order.sendPoint}</td>
+                    <td>{order.receivePoint}</td>
+                    <td>{order.totalServiceFee}</td>
+                    <td>{order.cod}</td>
+                  </tr>
+              ))
           ) : (
-            <tr>
-              <td colSpan="6">Không có đơn hàng nào</td>
-            </tr>
+              <tr>
+                <td colSpan="6">No orders found</td>
+              </tr>
           )}
-        </tbody>
-      </table>
-    </div>
+          </tbody>
+        </table>
+      </div>
   );
 };
 
