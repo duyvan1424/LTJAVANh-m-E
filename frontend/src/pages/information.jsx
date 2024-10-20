@@ -1,6 +1,6 @@
 import Header from "../components/layout/header";
 import Footer from "../components/layout/footer";
-import CompanyImage from "../assets/anh-nen-ca-chep-boi-full-hd-dep_025203733.jpg";
+// import CompanyImage from "../assets/anh-nen-ca-chep-boi-full-hd-dep_025203733.jpg";
 import "../styles/information.css";
 import Image1 from "../assets/anh-nen-ca-chep-boi-full-hd-dep_025203733.jpg";
 import Image2 from "../assets/chuyengia1.jpg";
