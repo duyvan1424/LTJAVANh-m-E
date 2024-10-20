@@ -1,40 +1,18 @@
 {
   "users": [
     {
-      "id": "1",
-      "username": "john_doe",
-      "email": "john@example.com",
-      "password": "password123",
-      "confirmPassword": "password123",
-      "role": 0
-    },
-    {
-      "id": "2",
-      "username": "jane_smith",
-      "email": "jane@example.com",
-      "password": "mypassword",
-      "confirmPassword": "mypassword",
-      "role": 0
-    },
-    {
-      "id": "3",
-      "username": "alice_wonder",
-      "email": "alice@example.com",
-      "password": "alicepass",
-      "confirmPassword": "alicepass",
-      "role": 0
-    },
-    {
-      "id": "7437",
-      "username": "12356788",
+      "id": "350d",
+      "username": "vinhle1804",
       "email": "2251120197@ut.edu.vn",
-      "password": "12345678"
+      "password": "12345678",
+      "role": "1"
     },
     {
-      "id": "087e",
-      "username": "12356788",
-      "email": "2251120197@ut.edu.vn",
-      "password": "12345678"
+      "id": "c4d5",
+      "username": "test1",
+      "email": "lephucvinh184@gmail.com",
+      "password": "123",
+      "role": "0"
     }
   ]
 }

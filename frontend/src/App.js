@@ -1,4 +1,4 @@
-import './index';
+
 import { Route, Routes } from "react-router-dom";
 import LoginPage from './pages/login';
 import RegisterPage from './pages/register';
@@ -10,6 +10,7 @@ import PhieuguiKH from './pages/phieuguiKH';
 import Vanchuyennoidia from './pages/vanchuyennoidia';
 import Vanchuyenquocte from './pages/vanchuyenquocte';
 import OrderHistory from './pages/OrderHistory';
+import UserManagement from './pages/userManagement';
 
 function App() {
   return (
@@ -22,9 +23,12 @@ function App() {
       <Route path="/international-shipping" element={<Vanchuyenquocte />} />
       <Route path="/track-order" element={<TrackOrderPage />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/quanly" element={<UserManagement/>} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/phieugui" element={<PhieuguiKH/>}/>
       <Route path="/history" element={<OrderHistory/>}/>
+    
+
     </Routes>
   );
 }
