@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": "350d",
+      "username": "vinhle1804",
+      "email": "2251120197@ut.edu.vn",
+      "password": "12345678",
+      "role": "1"
+    },
+    {
+      "id": "c4d5",
+      "username": "test1",
+      "email": "lephucvinh184@gmail.com",
+      "password": "123",
+      "role": "0"
+    }
+  ]
+}

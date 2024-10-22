@@ -1,33 +1,117 @@
-.header-nav {
-    position: relative;
-    left: 0;
+:root {
+    --color-active: rgb(250, 79, 11);
+    --color-hover: #e39a7bec;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.header {
     top: 0;
     width: 100%;
+    height: 64px;
+    font-size: 14px;
     background-color: black;
-    text-align: left;
-    display: flex;
-    justify-content: space-evenly;
+    position: fixed;
+    z-index: 10000;
 }
 
 
+.header-nav {
+    height: 100%;
+    width: 100%;
+}
 
-.header a {
-    color: white;
-    position: relative;
-    text-align: center;
+img.logo {
+    margin-left: 3vw;
+    height: 64px;
     float: left;
-    padding: 15px;
-    text-decoration: none;
-    line-height: 25px;
 }
 
-
-.header a:hover {
-    background-color: #e39a7bec;
-    color: black;
+.nav-list {
+    float: right;
+    margin-right: 3vw;
 }
 
-.header a.active {
-    background-color: rgb(250, 79, 11);
+.nav-list li {
+    display: inline-block;
+    line-height: 64px;
+    padding: 0;
+}
+
+.nav-link {
     color: white;
+    padding: 24px 20px;
+}
+
+.list-item:hover {
+    background-color: var(--color-active);
+    transition: .5s;
+}
+
+.list-item.actives {
+    background: var(--color-active);
+}
+
+.checkbtn {
+    font-size: 25px;
+    color: white;
+    float: right;
+    line-height: 64px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+
+@media(max-width: 858px) {
+    .checkbtn {
+        display: block;
+        cursor: pointer;
+    }
+
+    .nav-list {
+        position: fixed;
+        max-width: 250px;
+        height: 100%;
+        background: rgb(57, 55, 54);
+        top: 64px;
+        right: -500px;
+        text-align: center;
+        transition: all 0.2s;
+        z-index: 10001;
+        margin: 0;
+    }
+
+    .nav-list.open {
+        right: 0;
+    }
+
+    .list-item {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-link {
+        display: block;
+        font-size: 14px;
+        color: white;
+        padding: 0;
+    }
+
+    .list-item:hover {
+        background-color: var(--color-active);
+        transition: .3s;
+    }
+
+    a:hover {
+        background: none;
+        color: white;
+    }
 }

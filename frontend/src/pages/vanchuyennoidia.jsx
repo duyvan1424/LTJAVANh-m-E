@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import ContactForm from "./ContactForm";
-import FeedbackForm from "./FeedbackForm";
-import "./ShippingServicePage.css"; // Thêm file CSS cho trang
+import Image from "../assets/giaohang.jpg";
 
-const ShippingServicePage = () => {
+const Vanchuyennoidia = () => {
   const [trackingNumber, setTrackingNumber] = useState("");
   const [trackingResult, setTrackingResult] = useState("");
 
   const handleTrackingSubmit = (e) => {
     e.preventDefault();
-    // Giả lập quá trình theo dõi đơn hàng
     if (trackingNumber) {
       setTrackingResult(
         `Trạng thái đơn hàng với số theo dõi "${trackingNumber}" là: Đang giao.`
@@ -19,12 +16,131 @@ const ShippingServicePage = () => {
     }
   };
 
-  return (
-    <div className="shipping-service-page">
-      <h1>Dịch Vụ Vận Chuyển Hàng Nội Địa</h1>
+  const styles = {
+    container: {
+      margin: "0 auto",
+      maxWidth: "1000px",
+      padding: "20px",
+      fontFamily: "Arial, sans-serif",
+      lineHeight: "1.6",
+    },
+    header: {
+      textAlign: "center",
+      marginBottom: "40px",
+      width: "auto",
+      position: "relative",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+    },
+    mainTitle: {
+      color: "#d9534f",
+      fontSize: "60px",
+      margin: "0",
+    },
+    mainDescription: {
+      fontSize: "20px",
+      marginBottom: "30px",
+      textAlign: "center",
+    },
+    callToAction: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      marginBottom: "50px",
+    },
+    buttonPrimary: {
+      padding: "15px 30px",
+      backgroundColor: "#d9534f",
+      color: "white",
+      border: "none",
+      fontSize: "18px",
+      cursor: "pointer",
+      marginBottom: "20px",
+      borderRadius: "5px",
+    },
+    section: {
+      marginBottom: "40px",
+    },
+    trackingForm: {
+      display: "flex",
+      justifyContent: "center",
+      marginBottom: "20px",
+    },
+    trackingInput: {
+      padding: "10px",
+      border: "1px solid #ddd",
+      width: "70%",
+      marginRight: "10px",
+    },
+    trackingButton: {
+      padding: "10px 20px",
+      backgroundColor: "#d9534f",
+      color: "white",
+      border: "none",
+      cursor: "pointer",
+    },
+    trackingResult: {
+      textAlign: "center",
+      fontWeight: "bold",
+      marginTop: "20px",
+      color: "green",
+    },
+    h2: {
+      color: "#d9534f",
+      fontSize: "30px",
+    },
+    footerContainer: {
+      display: "flex",
+      justifyContent: "space-between",
+      marginTop: "50px",
+      padding: "20px 0",
+      borderTop: "1px solid #ddd",
+      backgroundColor: "#f2f2f2",
+    },
+    footerSection: {
+      width: "23%",
+      textAlign: "center",
+    },
+    footerHeading: {
+      fontSize: "18px",
+      fontWeight: "bold",
+      marginBottom: "10px",
+    },
+  };
 
-      <section>
-        <h2>Mô Tả Dịch Vụ</h2>
+  return (
+    <div style={styles.container}>
+      <header style={styles.header}>
+        <h1 style={styles.mainTitle}>
+          <b>Giao Hàng Nội Địa</b>
+        </h1>
+        <img
+          src={Image}
+          alt="Mô tả ảnh"
+          style={{ width: "800px", height: "300px" }}
+        />
+      </header>
+      <p style={styles.mainDescription}>
+        Công ty vận chuyển của chúng tôi tự hào là một đơn vị chuyên nghiệp,
+        đáng tin cậy trong việc vận chuyển cá cảnh, đặc biệt là cá Koi – loài cá
+        được coi là biểu tượng của may mắn và thịnh vượng. Với niềm đam mê và sự
+        tận tâm, chúng tôi không chỉ đảm bảo cá của bạn được vận chuyển an toàn
+        mà còn trải nghiệm dịch vụ chất lượng hàng đầu.
+      </p>
+      <div style={styles.callToAction}>
+        <button
+          style={styles.buttonPrimary}
+          onClick={() => alert("Giao Hàng Ngay!")}
+        >
+          Giao Hàng Ngay!
+        </button>
+      </div>
+
+      <section style={styles.section}>
+        <h2 style={styles.h2}>
+          <b>Mô Tả Dịch Vụ</b>
+        </h2>
         <p>
           Chúng tôi cung cấp dịch vụ giao hàng nhanh và giao hàng tiết kiệm. Với
           đội ngũ giao hàng chuyên nghiệp, bạn có thể yên tâm về thời gian và độ
@@ -37,81 +153,76 @@ const ShippingServicePage = () => {
         </p>
       </section>
 
-      <section>
-        <h2>Bảng Giá</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Dịch Vụ</th>
-              <th>Giá (VNĐ)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Giao hàng nhanh</td>
-              <td>30.000</td>
-            </tr>
-            <tr>
-              <td>Giao hàng tiết kiệm</td>
-              <td>20.000</td>
-            </tr>
-          </tbody>
-        </table>
-        <p>
-          Chúng tôi thường xuyên có các chương trình khuyến mãi, hãy theo dõi để
-          không bỏ lỡ!
-        </p>
-      </section>
-
-      <section>
-        <h2>Theo Dõi Đơn Hàng</h2>
-        <form onSubmit={handleTrackingSubmit}>
+      <section style={styles.section}>
+        <h2 id="trackingForm" style={styles.h2}>
+          <b>Theo Dõi Đơn Hàng</b>
+        </h2>
+        <form onSubmit={handleTrackingSubmit} style={styles.trackingForm}>
           <input
             type="text"
             placeholder="Nhập số theo dõi"
             value={trackingNumber}
             onChange={(e) => setTrackingNumber(e.target.value)}
+            style={styles.trackingInput}
             required
           />
-          <button type="submit">Theo Dõi</button>
+          <button type="submit" style={styles.trackingButton}>
+            Theo Dõi
+          </button>
         </form>
-        {trackingResult && <p>{trackingResult}</p>}
+        {trackingResult && (
+          <p style={styles.trackingResult}>{trackingResult}</p>
+        )}
       </section>
 
-      <section>
-        <h2>Hướng Dẫn Sử Dụng</h2>
-        <p>Cách đặt hàng, thanh toán và nhận hàng:</p>
-        <ol>
-          <li>Truy cập vào trang đặt hàng của chúng tôi.</li>
-          <li>Điền thông tin sản phẩm và địa chỉ giao hàng.</li>
-          <li>Chọn hình thức thanh toán.</li>
-          <li>Xác nhận đơn hàng và chờ nhận hàng.</li>
-        </ol>
-      </section>
+      {/* Footer Section */}
+      <footer style={styles.footerContainer}>
+        <div style={styles.footerSection}>
+          <h2 style={styles.footerHeading}>
+            <b>Hướng Dẫn Sử Dụng</b>
+          </h2>
+          <p>Cách đặt hàng, thanh toán và nhận hàng:</p>
+          <ol>
+            <li>Truy cập vào trang đặt hàng của chúng tôi.</li>
+            <li>Điền thông tin sản phẩm và địa chỉ giao hàng.</li>
+            <li>Chọn hình thức thanh toán.</li>
+            <li>Xác nhận đơn hàng và chờ nhận hàng.</li>
+          </ol>
+        </div>
 
-      <section>
-        <h2>Chính Sách Vận Chuyển và Hoàn Trả</h2>
-        <p>
-          Chúng tôi cam kết bảo hiểm hàng hóa trong quá trình vận chuyển. Nếu
-          hàng hóa bị hư hỏng, chúng tôi sẽ hoàn tiền theo chính sách hoàn trả
-          của chúng tôi.
-        </p>
-      </section>
+        <div style={styles.footerSection}>
+          <h2 style={styles.footerHeading}>
+            <b>Chính Sách Vận Chuyển và Hoàn Trả</b>
+          </h2>
+          <p>
+            Chúng tôi cam kết bảo hiểm hàng hóa trong quá trình vận chuyển. Nếu
+            hàng hóa bị hư hỏng, chúng tôi sẽ hoàn tiền theo chính sách hoàn trả
+            của chúng tôi.
+          </p>
+        </div>
 
-      <section>
-        <h2>Liên Hệ</h2>
-        <p>Số điện thoại: 0123 456 789</p>
-        <p>Email: contact@example.com</p>
-        <p>Địa chỉ: 123 Đường ABC, Thành phố XYZ</p>
-        <ContactForm />
-      </section>
+        <div style={styles.footerSection}>
+          <h2 style={styles.footerHeading}>
+            <b>Liên Hệ</b>
+          </h2>
+          <p>Số điện thoại: +84 123 456 789</p>
+          <p>Email: contact@example.com</p>
+          <p>Địa chỉ: Tầng 5, Tòa nhà IMC, 62 Trần Quang Khải</p>
+        </div>
 
-      <section>
-        <h2>Đánh Giá và Phản Hồi</h2>
-        <FeedbackForm />
-      </section>
+        <div style={styles.footerSection}>
+          <h2 style={styles.footerHeading}>
+            <b>Đánh Giá và Phản Hồi</b>
+          </h2>
+          <p>
+            Chúng tôi trân trọng mọi ý kiến đóng góp của khách hàng để cải thiện
+            chất lượng dịch vụ. Hãy để lại phản hồi của bạn để chúng tôi phục vụ
+            bạn tốt hơn!
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
 
-export default ShippingServicePage;
+export default Vanchuyennoidia;

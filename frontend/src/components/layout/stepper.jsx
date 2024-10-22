@@ -3,11 +3,12 @@ import { Stepper, Step, StepLabel } from "@mui/material";
 import "./stepper.css";
 
 const steps = ["đặt hàng", "giao hàng", "nhận hàng"];
+const stepCurrent = [1];
 
 const MyStepper = () => {
   return (
     <div className="stepper">
-      <Stepper orientation="vertical" activeStep={1}>
+      <Stepper activeStep={0}>
         {steps.map((label) => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
