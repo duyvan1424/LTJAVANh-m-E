@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
-import './header.css';
-import logo from "../../assets/logo_nonebackground.png"
+import React, { useState } from "react";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import "./header.css";
+import logo from "../../assets/logo_nonebackground.png";
 
 const Header = ({ scrollToProduct }) => {
   const [menuOpen, setMenuOpen] = useState(false); // State để theo dõi trạng thái của menu
@@ -25,19 +25,40 @@ const Header = ({ scrollToProduct }) => {
   return (
     <header className="header">
       <nav className="header-nav">
-        <label for="" className="checkbtn" onClick={toggleMenu}>&#9776;</label>
+        <label for="" className="checkbtn" onClick={toggleMenu}>
+          &#9776;
+        </label>
         <NavLink>
           <img className="logo" src={logo} alt="" />
         </NavLink>
 
-        <ul className={`nav-list ${menuOpen ? 'open' : ''}`}>
-          <li className="list-item"><NavLink className="nav-link" to="/">TRANG CHỦ</NavLink></li>
-          <li className="list-item"><NavLink className="nav-link" onClick={handleServiceClick}>DỊCH VỤ</NavLink></li>
-          <li className="list-item"><NavLink className="nav-link" to="/information">THÔNG TIN</NavLink></li>
-          <li className="list-item"><NavLink className="nav-link" to="/track-order">THEO DÕI ĐƠN HÀNG</NavLink></li>
-          <li className="list-item"><NavLink className="nav-link" to="/login">ĐĂNG NHẬP</NavLink></li>
+        <ul className={`nav-list ${menuOpen ? "open" : ""}`}>
+          <li className="list-item">
+            <NavLink className="nav-link" to="/">
+              TRANG CHỦ
+            </NavLink>
+          </li>
+          <li className="list-item">
+            <NavLink className="nav-link" onClick={handleServiceClick}>
+              DỊCH VỤ
+            </NavLink>
+          </li>
+          <li className="list-item">
+            <NavLink className="nav-link" to="/information">
+              THÔNG TIN
+            </NavLink>
+          </li>
+          <li className="list-item">
+            <NavLink className="nav-link" to="/track-order">
+              THEO DÕI ĐƠN HÀNG
+            </NavLink>
+          </li>
+          <li className="list-item">
+            <NavLink className="nav-link" to="/login">
+              ĐĂNG NHẬP
+            </NavLink>
+          </li>
         </ul>
-
 
         {/* <div className="header-nav-mid">
           <NavLink to="/" className="nav-link">TRANG CHỦ</NavLink>
@@ -52,8 +73,5 @@ const Header = ({ scrollToProduct }) => {
     </header>
   );
 };
-    </header >
-  )
-}
 
 export default Header;
