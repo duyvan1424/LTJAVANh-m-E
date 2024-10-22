@@ -8,6 +8,6 @@
   border: 2px solid #3498db; /* Kẻ viền với độ dày 2px và màu xanh dương */
   border-radius: 10px; /* Bo góc viền */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Đổ bóng */
-  margin-top: 40vh;
+  margin-top: 200px;
   margin-left: 25vw;
 }
