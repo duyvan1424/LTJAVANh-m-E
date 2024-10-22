@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function Vanchuyenquocte() {
-  return (
-    <div>
-      van chuyen quoc te
-    </div>
-  )
+  return <div>van chuyen quoc te</div>;
 }
 
-export default Vanchuyenquocte
+export default Vanchuyenquocte;
