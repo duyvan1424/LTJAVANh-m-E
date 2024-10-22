@@ -8,7 +8,7 @@ const stepCurrent = [1];
 const MyStepper = () => {
   return (
     <div className="stepper">
-      <Stepper activeStep={0}>
+      <Stepper activeStep={0} orientation="vertical">
         {steps.map((label) => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
