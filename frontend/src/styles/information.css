@@ -10,14 +10,13 @@
 .information-header {
     text-align: center;
     padding: 40px 0;
-    background-color: #fbe2da;
-    border-radius: 10px;
     margin-bottom: 30px;
 }
 
 .information-header h1 {
-    font-size: 28px;
+    font-size: 40px;
     color: #e55322;
+    font-weight: bold;
 }
 
 .content {
@@ -51,17 +50,26 @@
 }
 
 .service-highlights {
-    background-color: #fbe2da;
     padding: 30px;
     border-radius: 10px;
     margin-top: 30px;
     align-items: center;
 }
 
-.service-highlights h2,
-h3 {
+
+
+h2 {
+    font-weight: bold;
     text-align: center;
     margin-bottom: 20px;
+    font-size: 30px;
+}
+
+h3 {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
 }
 
 .service-highlights-content {
@@ -123,7 +131,6 @@ h3 {
 
 .testimonial {
     font-style: italic;
-    background-color: #fbe2da;
     padding: 15px;
     border-radius: 10px;
     margin-top: 20px;
