@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Image from '../assets/quocte.jpg';
+import Header from '../components/layout/header';
 
 const Vanchuyenquocte = () => {
     const [trackingNumber, setTrackingNumber] = useState('');
@@ -108,6 +109,7 @@ const Vanchuyenquocte = () => {
 
     return (
         <div style={styles.container}>
+            <div><Header/></div>
             <header style={styles.header}>
                 <h1 style={styles.mainTitle}><b>Giao Hàng Quốc Tế</b></h1>
                 <img src={Image} alt="Mô tả ảnh" style={{ width: '800px', height: '300px' }} />

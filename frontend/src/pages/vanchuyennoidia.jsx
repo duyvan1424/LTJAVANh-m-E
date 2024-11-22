@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Image from '../assets/giaohang.jpg';
 
+
 const Vanchuyennoidia = () => {
     const [trackingNumber, setTrackingNumber] = useState('');
     const [trackingResult, setTrackingResult] = useState('');
@@ -108,7 +109,7 @@ const Vanchuyennoidia = () => {
     };
 
     return (
-        <div style={styles.container}>
+                    <div style={styles.container}>
             <header style={styles.header}>
                 <h1 style={styles.mainTitle}><b>Giao Hàng Nội Địa</b></h1>
                 <img src={Image} alt="Mô tả ảnh" style={{ width: '800px', height: '300px' }} />
@@ -119,8 +120,8 @@ const Vanchuyennoidia = () => {
             chúng tôi không chỉ đảm bảo cá của bạn được vận chuyển an toàn mà còn trải nghiệm dịch vụ chất lượng hàng đầu.
             </p>
             <div style={styles.callToAction}>
-                <button style={styles.buttonPrimary} onClick={() => alert('Giao Hàng Ngay!')}>
-                    Giao Hàng Ngay!
+                <button style={styles.buttonPrimary}>
+                    <a href="/phieugui">Giao Hàng Ngay!</a> 
                 </button>
             </div>
 
