@@ -1,13 +1,13 @@
 import React, { useRef } from "react";
 import Header from "../components/layout/header";
 import Footer from "../components/layout/footer";
-import Carousel from "../components/layout/carousel";
+import Carousel from "../components/layout/carrousel";
 import Product from "../components/layout/product";
 
 function Home() {
-  const productRef = useRef(null); // Create ref for Product section
+  const productRef = useRef(null); // Tạo ref cho Product
 
-  // Smooth scroll to Product section
+  // Hàm cuộn xuống vị trí Product
   const scrollToProduct = () => {
     if (productRef.current) {
       productRef.current.scrollIntoView({ behavior: "smooth" });
@@ -16,10 +16,13 @@ function Home() {
 
   return (
     <div>
-      <Header scrollToProduct={scrollToProduct} /> {/* Passing scroll function to Header */}
+      <Header scrollToProduct={scrollToProduct} />{" "}
+      {/* Truyền hàm cuộn vào Header */}
       <Carousel />
       <div ref={productRef}>
-        <Product /> {/* Reference for the Product section */}
+        {" "}
+        {/* Gán ref cho div chứa Product */}
+        <Product />
       </div>
       <Footer />
     </div>
