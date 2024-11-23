@@ -25,7 +25,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start:json": "json-server --watch data/db.json --port 3001",
+    "start:json": "json-server --watch data/db.json --port 4000",
     "start:all": "concurrently \"npm start\" \"npm run start:json\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -54,5 +54,6 @@
     "concurrently": "^9.0.1",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13"
-  }
+  },
+  "proxy": "http://localhost:8080"
 }

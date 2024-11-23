@@ -3,7 +3,7 @@ import { Stepper, Step, StepLabel } from "@mui/material";
 import "./stepper.css";
 
 const steps = ["đặt hàng", "giao hàng", "nhận hàng"];
-const stepCurrent = [1];
+// const stepCurrent = [1];
 
 const   MyStepper = () => {
   return (

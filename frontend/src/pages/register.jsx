@@ -1,47 +1,40 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import registerUser from '../api/registerUser';
 import BasicTextFields from '../components/layout/testField';
 import koiBackground from '../assets/anh-nen-ca-chep-boi-full-hd-dep_025203733.jpg';
 import Header from '../components/layout/header';
 
 const RegisterPage = () => {
+  // Quản lý trạng thái cho form
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
   const navigate = useNavigate();
-  const role = 0; // Role mặc định là 0
 
   const handleRegister = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Ngăn form reload trang
 
-    if (password !== confirmPassword) {
-      alert('Passwords do not match!');
-      return;
-    }
-
+    // Dữ liệu để gửi tới backend
     const userData = {
       username,
       email,
       password,
-      role, // Thêm role mặc định
+      confirmPassword,
     };
 
-    try {
-      const existingUser = await axios.get(`http://localhost:8080/users?username=${username}`);
-      if (existingUser.data.length > 0) {
-        alert('Username already exists! Please choose a different one.');
-        return;
-      }
+    // Gọi API thông qua hàm registerUser
+    const response = await registerUser(userData);
 
-      const response = await axios.post('http://localhost:8080/users', userData);
-      console.log(response.data);
-      alert('Registration successful!');
-      navigate('/login');
-    } catch (error) {
-      console.error('There was an error!', error);
-      alert('Registration failed! Please try again.');
+    // Kiểm tra kết quả và hiển thị alert
+    if (response === 'Đăng ký thành công!') {
+      alert('Đăng ký thành công! Vui lòng đăng nhập.');
+      // Chuyển hướng đến trang login nếu cần (ví dụ: sử dụng React Router)
+      navigate('/login');  // Uncomment nếu bạn muốn chuyển hướng sau khi đăng ký thành công
+    } else {
+      alert(response); // Hiển thị thông báo lỗi từ backend
     }
   };
 
