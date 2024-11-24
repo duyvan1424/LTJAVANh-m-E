@@ -2,19 +2,15 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 
 const PrivateRoute = ({ children, requiredRole }) => {
-  const user = JSON.parse(localStorage.getItem('user')); // Lấy thông tin user từ localStorage
-  
-  if (!user) {
-    // Nếu chưa đăng nhập, chuyển hướng đến trang login
-    return <Navigate to="/login" />;
+  const token = localStorage.getItem('token'); // Lấy token từ localStorage
+  const userRole = localStorage.getItem('role'); // Lấy role từ localStorage
+
+  // Nếu không có token hoặc role không hợp lệ, điều hướng về trang login
+  if (!token || !requiredRole.includes(userRole)) {
+    return <Navigate to="/login" replace />;
   }
 
-  if (!requiredRole.includes(user.role)) {
-    // Nếu vai trò không phù hợp, chuyển hướng đến trang không có quyền
-    return <Navigate to="/" />;
-  }
-
-  // Nếu hợp lệ, render component con
+  // Nếu có token hợp lệ và role hợp lệ, hiển thị children (trang yêu cầu)
   return children;
 };
 

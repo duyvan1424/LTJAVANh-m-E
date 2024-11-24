@@ -5,19 +5,25 @@ import logo from "../../assets/logo.png";
 
 const Header = ({ scrollToProduct }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Kiểm tra trạng thái đăng nhập
   const [userMenuOpen, setUserMenuOpen] = useState(false); // State để mở menu user
   const [userRole, setUserRole] = useState(null); // State để lưu trữ role của user
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Kiểm tra trạng thái đăng nhập
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (user) {
+    const token = localStorage.getItem('token'); // Lấy token từ localStorage
+    const role = localStorage.getItem('role'); // Lấy role từ localStorage
+
+    if (token && role) {
       setIsLoggedIn(true);
-      setUserRole(user.role); // Lấy role của user từ localStorage
+      setUserRole(role); // Lưu role của user
+    } else {
+      setIsLoggedIn(false);
+      setUserRole(null);
     }
-  }, []);
+  }, []); // Chạy 1 lần khi component mount
 
   const handleServiceClick = () => {
     if (location.pathname === '/') {
@@ -31,11 +37,16 @@ const Header = ({ scrollToProduct }) => {
     setMenuOpen(!menuOpen);
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('user');
-    setIsLoggedIn(false);
-    setUserRole(null); // Reset role khi logout
-    navigate('/');
+  const handleLogout = async () => {
+    try {
+      localStorage.removeItem('token'); // Xóa token trong localStorage
+      localStorage.removeItem('role');  // Xóa role trong localStorage
+      setIsLoggedIn(false); // Reset trạng thái đăng nhập
+      setUserRole(null); // Reset role
+      navigate('/'); // Điều hướng về trang chủ
+    } catch (error) {
+      console.error("Đăng xuất thất bại:", error);
+    }
   };
 
   const toggleUserMenu = () => {
@@ -45,13 +56,13 @@ const Header = ({ scrollToProduct }) => {
   return (
     <header className="fixed top-0 w-full h-16 bg-white z-50">
       <nav className="flex items-center justify-between h-full px-12">
-        <button 
+        <button
           className="text-black text-3xl lg:hidden"
           onClick={toggleMenu}
         >
           &#9776;
         </button>
-        
+
         <NavLink to="/">
           <img className="h-16 ml-4" src={logo} alt="Logo" />
         </NavLink>
@@ -73,14 +84,14 @@ const Header = ({ scrollToProduct }) => {
           {isLoggedIn ? (
             // Hiển thị icon user với menu thả xuống khi đăng nhập
             <li className="relative">
-              <button onClick={toggleUserMenu} className="flex items-center text-white text-xl focus:outline-none">
-                <PersonPinIcon className='bg-black rounded-2xl'/>
+              <button onClick={toggleUserMenu} className="flex items-center text-black text-xl focus:outline-none">
+                <PersonPinIcon className='bg-black rounded-2xl' />
               </button>
-              
+
               {userMenuOpen && (
                 <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg">
-                  <NavLink 
-                    to="/user-info" 
+                  <NavLink
+                    to="/user-info"
                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                     onClick={() => setUserMenuOpen(false)}
                   >
@@ -90,8 +101,8 @@ const Header = ({ scrollToProduct }) => {
                   {/* Render các liên kết quản lý nếu role = 1 */}
                   {userRole === "1" && (
                     <>
-                      <NavLink 
-                        to="/staff" 
+                      <NavLink
+                        to="/staff"
                         className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                         onClick={() => setUserMenuOpen(false)}
                       >
@@ -101,15 +112,15 @@ const Header = ({ scrollToProduct }) => {
                   )}
                   {userRole === "2" && (
                     <>
-                      <NavLink 
-                        to="/quanly" 
+                      <NavLink
+                        to="/quanly"
                         className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                         onClick={() => setUserMenuOpen(false)}
                       >
                         Quản lý tài khoản
                       </NavLink>
-                      <NavLink 
-                        to="/staff" 
+                      <NavLink
+                        to="/staff"
                         className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                         onClick={() => setUserMenuOpen(false)}
                       >
@@ -118,7 +129,7 @@ const Header = ({ scrollToProduct }) => {
                     </>
                   )}
 
-                  <button 
+                  <button
                     onClick={() => { handleLogout(); setUserMenuOpen(false); }}
                     className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
                   >
@@ -137,6 +148,6 @@ const Header = ({ scrollToProduct }) => {
       </nav>
     </header>
   );
-}
+};
 
 export default Header;
