@@ -8,6 +8,7 @@ import com.demaxia.DEMACIAAA.entity.Order;
 import com.demaxia.DEMACIAAA.service.OrderService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,35 +22,30 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping
-    public ApiResponse<OrderResponse> createOrder(@RequestBody @Valid OrderCreationRequest request) {
+    public ResponseEntity<ApiResponse<OrderResponse>> createOrder(@RequestBody @Valid OrderCreationRequest request) {
         ApiResponse<OrderResponse> apiResponse = new ApiResponse<>();
-        apiResponse.setResult(orderService.createOrder(request)); // createOrder trả về OrderResponse
-        return apiResponse;
+        apiResponse.setResult(orderService.createOrder(request));
+        return ResponseEntity.ok(apiResponse);
     }
 
-
-    // Lấy danh sách tất cả đơn hàng
     @GetMapping
-    public List<OrderResponse> getOrders() {
-        return orderService.getAllOrders();
+    public ResponseEntity<List<OrderResponse>> getOrders() {
+        return ResponseEntity.ok(orderService.getAllOrders());
     }
 
-    // Lấy thông tin chi tiết một đơn hàng
     @GetMapping("/{id}")
-    public OrderResponse getOrder(@PathVariable("id") String id) {
-        return orderService.getOrderById(id);
+    public ResponseEntity<OrderResponse> getOrder(@PathVariable("id") String id) {
+        return ResponseEntity.ok(orderService.getOrderById(id));
     }
 
-    // Cập nhật thông tin một đơn hàng
     @PutMapping("/{id}")
-    public OrderResponse updateOrder(@PathVariable String id, @RequestBody OrderUpdateRequest request) {
-        return orderService.updateOrder(id, request);
+    public ResponseEntity<OrderResponse> updateOrder(@PathVariable String id, @RequestBody OrderUpdateRequest request) {
+        return ResponseEntity.ok(orderService.updateOrder(id, request));
     }
 
-    // Xóa một đơn hàng
     @DeleteMapping("/{id}")
-    public String deleteOrder(@PathVariable String id) {
+    public ResponseEntity<String> deleteOrder(@PathVariable String id) {
         orderService.deleteOrder(id);
-        return "Order has been deleted.";
+        return ResponseEntity.ok("Order with ID " + id + " has been successfully deleted.");
     }
 }
