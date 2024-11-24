@@ -8,6 +8,7 @@ import com.demaxia.DEMACIAAA.entity.User;
 import com.demaxia.DEMACIAAA.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,38 +22,35 @@ public class UserController {
     private UserService userService;
 
     @PostMapping()
-    ApiResponse<User> createUser(@RequestBody @Valid UserCreationRequest request){
+    public ResponseEntity<ApiResponse<User>> createUser(@RequestBody @Valid UserCreationRequest request) {
         ApiResponse<User> apiResponse = new ApiResponse<>();
         apiResponse.setResult(userService.createUser(request));
-        return apiResponse;
+        return ResponseEntity.ok(apiResponse);
     }
 
     @GetMapping
-    List<User> getUsers(){
-        return userService.getUsers();
-
+    public ResponseEntity<List<User>> getUsers() {
+        return ResponseEntity.ok(userService.getUsers());
     }
+
     @GetMapping("/{userId}")
-    UserReponse getUser(@PathVariable("userId") String userId) {
-        return userService.getUser(userId); // Gọi phương thức trong UserService để lấy thông tin người dùng theo userId
+    public ResponseEntity<UserReponse> getUser(@PathVariable("userId") String userId) {
+        return ResponseEntity.ok(userService.getUser(userId));
     }
 
-    // Lấy thông tin người dùng theo username
     @GetMapping("/username/{username}")
-    public UserReponse getUserByUsername(@PathVariable("username") String username) {
-        return userService.getUserByUsername(username);
+    public ResponseEntity<UserReponse> getUserByUsername(@PathVariable("username") String username) {
+        return ResponseEntity.ok(userService.getUserByUsername(username));
     }
-
 
     @PutMapping("/{userId}")
-    UserReponse updateUser(@PathVariable String userId, @RequestBody UserUpdateRequest request){
-        return userService.updateUser(userId, request);
+    public ResponseEntity<UserReponse> updateUser(@PathVariable String userId, @RequestBody UserUpdateRequest request) {
+        return ResponseEntity.ok(userService.updateUser(userId, request));
     }
 
     @DeleteMapping("/{userId}")
-    String deleteUser(@PathVariable String userId){
+    public ResponseEntity<String> deleteUser(@PathVariable String userId) {
         userService.deleteUser(userId);
-        return "user has been xoa r";
+        return ResponseEntity.ok("User with ID " + userId + " has been successfully deleted.");
     }
-
 }
