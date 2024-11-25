@@ -8,20 +8,20 @@ const OrderHistory = () => {
 
   useEffect(() => {
     fetch('/api/orders')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setOrders(data);
-        setLoading(false);
-      })
-      .catch(error => {
-        setError('Error fetching orders. Please try again later.');
-        setLoading(false);
-      });
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          setOrders(data);
+          setLoading(false);
+        })
+        .catch(error => {
+          setError('Error fetching orders. Please try again later.');
+          setLoading(false);
+        });
   }, []);
 
   if (loading) {
@@ -33,10 +33,10 @@ const OrderHistory = () => {
   }
 
   return (
-    <div className="order-history">
-      <h2>Lịch sử đơn hàng</h2>
-      <table>
-        <thead>
+      <div className="order-history">
+        <h2>Lịch sử đơn hàng</h2>
+        <table>
+          <thead>
           <tr>
             <th>Mã đơn</th>
             <th>Bên nhận</th>
@@ -45,27 +45,27 @@ const OrderHistory = () => {
             <th>Tổng phí dịch vụ</th>
             <th>Thu hộ/COD</th>
           </tr>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
           {orders.length ? (
-            orders.map((order, index) => (
-              <tr key={index}>
-                <td>{order.id}</td>
-                <td>{order.recipient} <br /> {order.phone} - {order.location}</td>
-                <td>{order.sendPoint}</td>
-                <td>{order.receivePoint}</td>
-                <td>{order.totalServiceFee}</td>
-                <td>{order.cod}</td>
-              </tr>
-            ))
+              orders.map((order, index) => (
+                  <tr key={index}>
+                    <td>{order.id}</td>
+                    <td>{order.recipient} <br /> {order.phone} - {order.location}</td>
+                    <td>{order.sendPoint}</td>
+                    <td>{order.receivePoint}</td>
+                    <td>{order.totalServiceFee}</td>
+                    <td>{order.cod}</td>
+                  </tr>
+              ))
           ) : (
-            <tr>
-              <td colSpan="6">No orders found</td>
-            </tr>
+              <tr>
+                <td colSpan="6">No orders found</td>
+              </tr>
           )}
-        </tbody>
-      </table>
-    </div>
+          </tbody>
+        </table>
+      </div>
   );
 };
 

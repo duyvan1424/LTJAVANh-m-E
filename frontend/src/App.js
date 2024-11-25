@@ -27,12 +27,12 @@ function App() {
       <Route path="/vanchuyennoidia" element={<ShippingServicePage />} />
       <Route path="/domestic-shipping" element={<Vanchuyennoidia />} />
       <Route path="/international-shipping" element={<Vanchuyenquocte />} />
-      <Route path="/track-order" element={<Tracuu/>} />
-       {/* Route dành cho nhân viên với phân quyền */}
-       <Route
+      <Route path="/track-order" element={<Tracuu />} />
+      {/* Route dành cho nhân viên với phân quyền */}
+      <Route
         path="/staff"
         element={
-          <PrivateRoute requiredRole={["1", "2"]}> {/* Chấp nhận cả role "1" và "2" */}
+          <PrivateRoute requiredRole={["1", "2"]}> {/* Chấp nhận role "1" và "2" */}
             <StaffOrderManagement />
           </PrivateRoute>
         }
@@ -58,12 +58,10 @@ function App() {
         }
       />
       <Route path="/register" element={<RegisterPage />} />
-      <Route path="/phieugui" element={<PhieuguiKH/>}/>
-      <Route path="/history" element={<OrderHistory/>}/>
-      <Route path="/tracuu" element={<Tracuu/>}/>
-      <Route path="/taodonhang" element={<Taodonhang/>}/>
-      
-
+      <Route path="/phieugui" element={<PhieuguiKH />} />
+      <Route path="/history" element={<OrderHistory />} />
+      <Route path="/tracuu" element={<Tracuu />} />
+      <Route path="/taodonhang" element={<Taodonhang />} />
 
     </Routes>
   );

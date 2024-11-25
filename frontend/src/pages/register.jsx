@@ -1,47 +1,36 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import registerUser from '../api/registerUser';
 import BasicTextFields from '../components/layout/testField';
 import koiBackground from '../assets/anh-nen-ca-chep-boi-full-hd-dep_025203733.jpg';
 import Header from '../components/layout/header';
 
 const RegisterPage = () => {
+  // Quản lý trạng thái cho form
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
   const navigate = useNavigate();
-  const role = 0; // Role mặc định là 0
 
   const handleRegister = async (e) => {
     e.preventDefault();
-
-    if (password !== confirmPassword) {
-      alert('Passwords do not match!');
-      return;
-    }
 
     const userData = {
       username,
       email,
       password,
-      role, // Thêm role mặc định
+      confirmPassword,
     };
 
-    try {
-      const existingUser = await axios.get(`http://localhost:8080/users?username=${username}`);
-      if (existingUser.data.length > 0) {
-        alert('Username already exists! Please choose a different one.');
-        return;
-      }
+    const response = await registerUser(userData);
 
-      const response = await axios.post('http://localhost:8080/users', userData);
-      console.log(response.data);
-      alert('Registration successful!');
+    if (response === 'Đăng ký thành công!') {
+      alert('Đăng ký thành công! Vui lòng đăng nhập.');
       navigate('/login');
-    } catch (error) {
-      console.error('There was an error!', error);
-      alert('Registration failed! Please try again.');
+    } else {
+      alert(response);
     }
   };
 
@@ -59,7 +48,7 @@ const RegisterPage = () => {
           <form onSubmit={handleRegister}>
             <BasicTextFields
               label="Username"
-              placeholder="Enter your username"
+              placeholder="Nhập tên"
               name="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -67,7 +56,7 @@ const RegisterPage = () => {
             />
             <BasicTextFields
               label="Email"
-              placeholder="Enter your email"
+              placeholder="Nhập email"
               name="email"
               type="email"
               value={email}
@@ -78,7 +67,7 @@ const RegisterPage = () => {
               label="Password"
               type="password"
               name="password"
-              placeholder="Enter your password"
+              placeholder="Nhập mật khẩu"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required={true}
@@ -87,7 +76,7 @@ const RegisterPage = () => {
               label="Confirm Password"
               type="password"
               name="confirmPassword"
-              placeholder="Confirm your password"
+              placeholder="Nhập lại mật khẩu"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required={true}

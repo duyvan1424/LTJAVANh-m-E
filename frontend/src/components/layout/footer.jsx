@@ -9,10 +9,10 @@ function Footer() {
         <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between">
           {/* Thông tin công ty */}
           <div className="w-full md:w-1/3 text-center mb-4 md:mb-0">
-            <h3 className="text-2xl font-bold mb-2">Công ty TNHH ROUTINE VIETNAM</h3>
+            <h3 className="text-2xl font-bold mb-2">Công ty TNHH AQUAKOI VIETNAM</h3>
             <p>
               <a href="https://routine.vn/gioi-thieu-ve-routine" className="hover:underline">
-                Giới thiệu về ROUTINE
+                Giới thiệu về AQUAKOI
               </a>
             </p>
             <p>Văn phòng: Tầng 5, Tòa nhà IMC, 62 Trần Quang Khải</p>
@@ -60,7 +60,7 @@ function Footer() {
 
         {/* Thông tin bản quyền */}
         <div className="text-center mt-2">
-          <p>&copy; 2023 ROUTINE. All rights reserved.</p>
+          <p>&copy; 2024 AQUAKOI. All rights reserved.</p>
         </div>
       </div>
     </footer>

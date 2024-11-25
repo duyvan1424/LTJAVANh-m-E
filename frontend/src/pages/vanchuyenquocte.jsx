@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import Image from '../assets/quocte.jpg';
 import Header from '../components/layout/header';
+import Footer from '../components/layout/footer';
+import { useNavigate } from 'react-router-dom';
 
 const Vanchuyenquocte = () => {
+    const navigate = useNavigate();
     const [trackingNumber, setTrackingNumber] = useState('');
     const [trackingResult, setTrackingResult] = useState('');
+    localStorage.setItem("fee", 500000);
 
     const handleTrackingSubmit = (e) => {
         e.preventDefault();
@@ -34,7 +38,7 @@ const Vanchuyenquocte = () => {
         mainTitle: {
             color: '#d9534f',
             fontSize: '60px',
-            margin: '0', 
+            margin: '0',
         },
         mainDescription: {
             fontSize: '20px',
@@ -108,86 +112,54 @@ const Vanchuyenquocte = () => {
     };
 
     return (
-        <div style={styles.container}>
-            <div><Header/></div>
-            <header style={styles.header}>
-                <h1 style={styles.mainTitle}><b>Giao Hàng Quốc Tế</b></h1>
-                <img src={Image} alt="Mô tả ảnh" style={{ width: '800px', height: '300px' }} />
-            </header>
-            <p style={styles.mainDescription}>
-            Công ty vận chuyển của chúng tôi tự hào là một đơn vị chuyên nghiệp, đáng tin cậy trong việc vận chuyển cá cảnh, 
-            đặc biệt là cá Koi – loài cá được coi là biểu tượng của may mắn và thịnh vượng. Với niềm đam mê và sự tận tâm, 
-            chúng tôi không chỉ đảm bảo cá của bạn được vận chuyển an toàn mà còn trải nghiệm dịch vụ chất lượng hàng đầu.
-            </p>
-            <div style={styles.callToAction}>
-                <button style={styles.buttonPrimary} onClick={() => alert('Giao Hàng Ngay!')}>
-                    Giao Hàng Ngay!
-                </button>
+        <>
+            <Header />
+            <div style={styles.container}>
+
+                <header style={styles.header}>
+                    <h1 style={styles.mainTitle}><b>Giao Hàng Quốc Tế</b></h1>
+                    <img src={Image} alt="Mô tả ảnh" style={{ width: '800px', height: '300px' }} />
+                </header>
+                <p style={styles.mainDescription}>
+                    Công ty vận chuyển của chúng tôi tự hào là một đơn vị chuyên nghiệp, đáng tin cậy trong việc vận chuyển cá cảnh,
+                    đặc biệt là cá Koi – loài cá được coi là biểu tượng của may mắn và thịnh vượng. Với niềm đam mê và sự tận tâm,
+                    chúng tôi không chỉ đảm bảo cá của bạn được vận chuyển an toàn mà còn trải nghiệm dịch vụ chất lượng hàng đầu.
+                </p>
+                <div style={styles.callToAction}>
+                    <button style={styles.buttonPrimary} onClick={() => navigate('/phieugui')}>
+                        Giao Hàng Ngay!
+                    </button>
+                </div>
+
+                <section style={styles.section}>
+                    <h2 style={styles.h2}><b>Mô Tả Dịch Vụ</b></h2>
+                    <p>
+                        Chúng tôi cung cấp dịch vụ giao hàng nhanh và giao hàng tiết kiệm. Với đội ngũ giao hàng chuyên nghiệp, bạn có thể yên tâm về thời gian và độ an toàn của hàng hóa.
+                    </p>
+                    <p>
+                        Chúng tôi phục vụ trên toàn quốc với mạng lưới giao hàng rộng rãi, đảm bảo hàng hóa của bạn đến tay người nhận một cách nhanh chóng và an toàn.
+                    </p>
+                </section>
+
+                <section style={styles.section}>
+                    <h2 id="trackingForm" style={styles.h2}><b>Theo Dõi Đơn Hàng</b></h2>
+                    <form onSubmit={handleTrackingSubmit} style={styles.trackingForm}>
+                        <input
+                            type="text"
+                            placeholder="Nhập số theo dõi"
+                            value={trackingNumber}
+                            onChange={(e) => setTrackingNumber(e.target.value)}
+                            style={styles.trackingInput}
+                            required
+                        />
+                        <button type="submit" style={styles.trackingButton}>Theo Dõi</button>
+                    </form>
+                    {trackingResult && <p style={styles.trackingResult}>{trackingResult}</p>}
+                </section>
+
             </div>
-
-            <section style={styles.section}>
-                <h2 style={styles.h2}><b>Mô Tả Dịch Vụ</b></h2>
-                <p>
-                    Chúng tôi cung cấp dịch vụ giao hàng nhanh và giao hàng tiết kiệm. Với đội ngũ giao hàng chuyên nghiệp, bạn có thể yên tâm về thời gian và độ an toàn của hàng hóa.
-                </p>
-                <p>
-                    Chúng tôi phục vụ trên toàn quốc với mạng lưới giao hàng rộng rãi, đảm bảo hàng hóa của bạn đến tay người nhận một cách nhanh chóng và an toàn.
-                </p>
-            </section>
-
-            <section style={styles.section}>
-                <h2 id="trackingForm" style={styles.h2}><b>Theo Dõi Đơn Hàng</b></h2>
-                <form onSubmit={handleTrackingSubmit} style={styles.trackingForm}>
-                    <input
-                        type="text"
-                        placeholder="Nhập số theo dõi"
-                        value={trackingNumber}
-                        onChange={(e) => setTrackingNumber(e.target.value)}
-                        style={styles.trackingInput}
-                        required
-                    />
-                    <button type="submit" style={styles.trackingButton}>Theo Dõi</button>
-                </form>
-                {trackingResult && <p style={styles.trackingResult}>{trackingResult}</p>}
-            </section>
-
-            {/* Footer Section */}
-            <footer style={styles.footerContainer}>
-                <div style={styles.footerSection}>
-                    <h2 style={styles.footerHeading}><b>Hướng Dẫn Sử Dụng</b></h2>
-                    <p>Cách đặt hàng, thanh toán và nhận hàng:</p>
-                    <ol>
-                        <li>Truy cập vào trang đặt hàng của chúng tôi.</li>
-                        <li>Điền thông tin sản phẩm và địa chỉ giao hàng.</li>
-                        <li>Chọn hình thức thanh toán.</li>
-                        <li>Xác nhận đơn hàng và chờ nhận hàng.</li>
-                    </ol>
-                </div>
-
-                <div style={styles.footerSection}>
-                    <h2 style={styles.footerHeading}><b>Chính Sách Vận Chuyển và Hoàn Trả</b></h2>
-                    <p>
-                        Chúng tôi cam kết bảo hiểm hàng hóa trong quá trình vận chuyển.
-                        Nếu hàng hóa bị hư hỏng, chúng tôi sẽ hoàn tiền theo chính sách hoàn trả của chúng tôi.
-                    </p>
-                </div>
-
-                <div style={styles.footerSection}>
-                    <h2 style={styles.footerHeading}><b>Liên Hệ</b></h2>
-                    <p>Số điện thoại: +84 123 456 789</p>
-                    <p>Email: contact@example.com</p>
-                    <p>Địa chỉ: Tầng 5, Tòa nhà IMC, 62 Trần Quang Khải</p>
-                </div>
-
-                <div style={styles.footerSection}>
-                    <h2 style={styles.footerHeading}><b>Đánh Giá và Phản Hồi</b></h2>
-                    <p>
-                        Chúng tôi trân trọng mọi ý kiến đóng góp của khách hàng để cải thiện chất lượng dịch vụ.
-                        Hãy để lại phản hồi của bạn để chúng tôi phục vụ bạn tốt hơn!
-                    </p>
-                </div>
-            </footer>
-        </div>
+            <Footer />
+        </>
     );
 };
 
