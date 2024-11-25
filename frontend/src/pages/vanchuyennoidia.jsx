@@ -6,6 +6,7 @@ import Footer from '../components/layout/footer';
 const Vanchuyennoidia = () => {
     const [trackingNumber, setTrackingNumber] = useState('');
     const [trackingResult, setTrackingResult] = useState('');
+    localStorage.setItem("fee", 30000);
 
     const handleTrackingSubmit = (e) => {
         e.preventDefault();

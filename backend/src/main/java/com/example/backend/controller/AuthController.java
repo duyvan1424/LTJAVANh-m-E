@@ -65,8 +65,10 @@ public class AuthController {
         Map<String, Object> response = new HashMap<>();
         response.put("token", token);
         response.put("role", user.getRole());  // Assuming `getRole()` is the method to get the user's role
+        response.put("username", user.getUsername());
+        response.put("email", user.getEmail());
 
-        return ResponseEntity.ok(response); // Return both token and role
+        return ResponseEntity.ok(response); // Return toke, user name, email
     }
 
     // API kiểm tra trạng thái và role người dùng

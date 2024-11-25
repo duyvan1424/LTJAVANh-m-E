@@ -63,8 +63,6 @@ function App() {
       <Route path="/tracuu" element={<Tracuu />} />
       <Route path="/taodonhang" element={<Taodonhang />} />
 
-
-
     </Routes>
   );
 }

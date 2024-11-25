@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Builder
 @Table(name = "users")
@@ -25,4 +27,6 @@ public class User {
     private String password;
     @Column(nullable = false)
     private int role = 0; // Default role: USER, 1: staff, 2: admin
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Order> orders;
 }

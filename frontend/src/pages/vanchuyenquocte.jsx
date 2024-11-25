@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import Image from '../assets/quocte.jpg';
 import Header from '../components/layout/header';
 import Footer from '../components/layout/footer';
+import { useNavigate } from 'react-router-dom';
 
 const Vanchuyenquocte = () => {
+    const navigate = useNavigate();
     const [trackingNumber, setTrackingNumber] = useState('');
     const [trackingResult, setTrackingResult] = useState('');
+    localStorage.setItem("fee", 500000);
 
     const handleTrackingSubmit = (e) => {
         e.preventDefault();
@@ -123,7 +126,7 @@ const Vanchuyenquocte = () => {
                     chúng tôi không chỉ đảm bảo cá của bạn được vận chuyển an toàn mà còn trải nghiệm dịch vụ chất lượng hàng đầu.
                 </p>
                 <div style={styles.callToAction}>
-                    <button style={styles.buttonPrimary} onClick={() => alert('Giao Hàng Ngay!')}>
+                    <button style={styles.buttonPrimary} onClick={() => navigate('/phieugui')}>
                         Giao Hàng Ngay!
                     </button>
                 </div>

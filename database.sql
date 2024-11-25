@@ -23,6 +23,7 @@ CREATE TABLE orders (
     receiver_address VARCHAR(255) NOT NULL,         -- Địa chỉ người nhận
     receiver_phone VARCHAR(20) NOT NULL,            -- Số điện thoại người nhận
     status TINYINT NOT NULL DEFAULT 0,              -- Trạng thái: 0: PENDING, 1: APPROVED, 2: DELIVERED, 3: CANCELLED
+    tracking_code VARCHAR(10)
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Thời gian tạo đơn hàng
     FOREIGN KEY (user_id) REFERENCES users(id)      -- Khóa ngoại tham chiếu bảng users
 );

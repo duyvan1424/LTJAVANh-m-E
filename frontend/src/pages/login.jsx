@@ -24,9 +24,11 @@ const LoginPage = () => {
 
       // Xử lý khi đăng nhập thành công
       alert('Đăng nhập thành công!');
-      const { token, role } = response.data; // Lấy token và role từ backend response
+      const { username, token, role } = response.data; // Lấy token và role từ backend response
       localStorage.setItem('token', token); // Lưu token vào localStorage
       localStorage.setItem('role', role);   // Lưu role vào localStorage
+      localStorage.setItem("username", username);
+      localStorage.setItem("email", email);
       console.log(token, role); // Log the token and role for debugging
 
       navigate('/'); // Điều hướng đến trang Dashboard

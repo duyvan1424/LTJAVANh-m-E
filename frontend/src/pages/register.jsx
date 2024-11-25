@@ -15,9 +15,8 @@ const RegisterPage = () => {
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
-    e.preventDefault(); // Ngăn form reload trang
+    e.preventDefault();
 
-    // Dữ liệu để gửi tới backend
     const userData = {
       username,
       email,
@@ -25,16 +24,13 @@ const RegisterPage = () => {
       confirmPassword,
     };
 
-    // Gọi API thông qua hàm registerUser
     const response = await registerUser(userData);
 
-    // Kiểm tra kết quả và hiển thị alert
     if (response === 'Đăng ký thành công!') {
       alert('Đăng ký thành công! Vui lòng đăng nhập.');
-      // Chuyển hướng đến trang login nếu cần (ví dụ: sử dụng React Router)
-      navigate('/login');  // Uncomment nếu bạn muốn chuyển hướng sau khi đăng ký thành công
+      navigate('/login');
     } else {
-      alert(response); // Hiển thị thông báo lỗi từ backend
+      alert(response);
     }
   };
 
@@ -52,7 +48,7 @@ const RegisterPage = () => {
           <form onSubmit={handleRegister}>
             <BasicTextFields
               label="Username"
-              placeholder="Enter your username"
+              placeholder="Nhập tên"
               name="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -60,7 +56,7 @@ const RegisterPage = () => {
             />
             <BasicTextFields
               label="Email"
-              placeholder="Enter your email"
+              placeholder="Nhập email"
               name="email"
               type="email"
               value={email}
@@ -71,7 +67,7 @@ const RegisterPage = () => {
               label="Password"
               type="password"
               name="password"
-              placeholder="Enter your password"
+              placeholder="Nhập mật khẩu"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required={true}
@@ -80,7 +76,7 @@ const RegisterPage = () => {
               label="Confirm Password"
               type="password"
               name="confirmPassword"
-              placeholder="Confirm your password"
+              placeholder="Nhập lại mật khẩu"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required={true}
