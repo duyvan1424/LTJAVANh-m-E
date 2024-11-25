@@ -15,22 +15,22 @@ import org.springframework.stereotype.Service;
 public class UserService {
     @Autowired
     private UserRepository userRepository;
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public String register(RegisterRequest request) {
         // Kiểm tra email và username đã tồn tại chưa
         if (userRepository.findByEmail(request.getEmail()).isPresent()) {
             return "Email đã tồn tại!";
         }
-        if (userRepository.findByUsername(request.getUsername()).isPresent()) {
-            return "Username đã tồn tại!";
-        }
-
         // Kiểm tra mật khẩu xác nhận
         if (!request.getPassword().equals(request.getConfirmPassword())) {
             return "Mật khẩu không khớp!";
         }
+
+        if (userRepository.findByUsername(request.getUsername()).isPresent()) {
+            return "Username đã tồn tại!";
+        }
+
+
 
         // Mã hóa mật khẩu
 
@@ -38,8 +38,7 @@ public class UserService {
         User user = new User();
         user.setUsername(request.getUsername());
         user.setEmail(request.getEmail());
-        user.setPassword(bCryptPasswordEncoder.encode(request.getPassword())); // Mã hóa mật khẩu
-
+        user.setPassword(bCryptPasswordEncoder.encode(request.getPassword()));
         userRepository.save(user);
 
         return "Đăng ký thành công!";
