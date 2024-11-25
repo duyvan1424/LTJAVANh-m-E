@@ -9,18 +9,26 @@ import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
 
+/**
+ * UserResponse class representing a response object for user data.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserReponse {
-    private String id;
-    private String username;
-    private String password;
-    private String email;
-//    private String firstname;
-//    private String lastname;
-//    private LocalDate dob;
-    private String role;
+public class UserResponse {
+    private String id; // Unique identifier for the user
+    private String username; // User's login name
+    private String email; // Email of the user
+
+    /**
+     * Ensure to store only encrypted password. Plain text password storage is discouraged.
+     */
+    private String password; 
+
+    private String firstname; // User's first name
+    private String lastname; // User's last name
+    private LocalDate dob; // Date of birth of the user
+    private String role; // Role of the user in the system (e.g., admin, user, etc.)
 }
