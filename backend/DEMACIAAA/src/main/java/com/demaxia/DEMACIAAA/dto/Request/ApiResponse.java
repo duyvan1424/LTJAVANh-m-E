@@ -10,32 +10,17 @@ import lombok.experimental.FieldDefaults;
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ApiResponse <T>{
-    private int code = 1000;
+public class ApiResponse<T> {
+    private int code = 1000; // Consider defining standard codes as constants or an Enum for better maintainability
     private String message;
     private T result;
 
-//    public int getCode() {
-//        return code;
-//    }
-//
-//    public void setCode(int code) {
-//        this.code = code;
-//    }
-//
-//    public String getMessage() {
-//        return message;
-//    }
-//
-//    public void setMessage(String message) {
-//        this.message = message;
-//    }
-//
-//    public T getResult() {
-//        return result;
-//    }
-//
-//    public void setResult(T result) {
-//        this.result = result;
-//    }
+    // Optional: Add utility methods for quick response creation
+    public static <T> ApiResponse<T> success(T result) {
+        return new ApiResponse<>(1000, "Success", result);
+    }
+
+    public static ApiResponse<Void> error(int code, String message) {
+        return new ApiResponse<>(code, message, null);
+    }
 }
