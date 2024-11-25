@@ -50,7 +50,16 @@ public class OrderController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
-    
+    public String getStatusName(int status) {
+        switch (status) {
+            case 0: return "Đang chờ xác nhận";
+            case 1: return "Đã đặt hàng";
+            case 2: return "Đang giao";
+            case 3: return "Đã giao";
+            case 4: return "Đã hủy";
+        }
+        return "";
+    }
 
     // Lấy tất cả đơn hàng hoặc tìm kiếm theo mã vận đơn hoặc username
     @GetMapping
@@ -82,15 +91,5 @@ public class OrderController {
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
-    }
-public String getStatusName(int status) {
-        switch (status) {
-            case 0: return "Đang chờ xác nhận";
-            case 1: return "Đã đặt hàng";
-            case 2: return "Đang giao";
-            case 3: return "Đã giao";
-            case 4: return "Đã hủy";
-        }
-        return "";
     }
 }

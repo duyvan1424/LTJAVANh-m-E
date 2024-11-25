@@ -22,8 +22,13 @@ public class UserController {
             User updatedUser = userService.updateUser(id, user);
             return ResponseEntity.ok(updatedUser);
         } catch (Exception e) {
-            // Lỗi
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
     }
 
+    @GetMapping
+    public ResponseEntity<List<UserResponse>> getAllUsers() {
+        List <UserResponse> users;
+        return ResponseEntity.ok(userService.getAllUsers());
+    }
 }
