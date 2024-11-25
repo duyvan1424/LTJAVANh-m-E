@@ -36,6 +36,7 @@ function StaffOrderManagement() {
           order.trackingCode === trackingCode ? { ...order, status: newStatus } : order
         )
       );
+      alert("Thay đổi trạng thái thành công!");
     } catch (error) {
       console.error("Lỗi khi cập nhật trạng thái:", error);
     }
@@ -78,7 +79,7 @@ function StaffOrderManagement() {
               {orders.length > 0 ? (
                 orders.map((order) => (
                   <tr key={order.trackingCode} className="hover:bg-blue-100 even:bg-gray-100">
-                    <td className="p-4 text-gray-700">{order.senderName} {order.status}</td>
+                    <td className="p-4 text-gray-700">{order.senderName}</td>
                     <td className="p-4 text-gray-700">{order.senderAddress}</td>
                     <td className="p-4 text-gray-700">{order.receiverName}</td>
                     <td className="p-4 text-gray-700">{order.receiverAddress}</td>
@@ -86,7 +87,7 @@ function StaffOrderManagement() {
                     <td className="p-4">
                       <select
                         className="border border-blue-200 rounded p-2 text-gray-700 focus:outline-none focus:border-blue-500"
-                        value={order.status} // Liên kết trạng thái từ cơ sở dữ liệu
+                        value={order.status}
                         onChange={(e) => {
                           setOrders((prevOrders) =>
                             prevOrders.map((o) =>
