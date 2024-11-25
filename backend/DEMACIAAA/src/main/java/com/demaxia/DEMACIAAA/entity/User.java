@@ -1,73 +1,43 @@
 package com.demaxia.DEMACIAAA.entity;
+
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDate;
 
+/**
+ * Entity class representing a User in the system.
+ */
 @Entity
-@Table(name = "user")
+@Table(name = "users") // Plural form to follow database naming conventions
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class User {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.UUID) // Generate unique identifier
     private String id;
 
-    @Column(unique = true, nullable = false, columnDefinition = "varchar(255)")
-    private String username;
-    private String password;
-    private String email;
-//    private String firstname;
-//    private String lastname;
-//    private LocalDate dob;
-    private String role;
+    @Column(unique = true, nullable = false, length = 255)
+    private String username; // Unique username for the user
 
-//    public String getId() {
-//        return id;
-//    }
-//
-//    public void setId(String id) {
-//        this.id = id;
-//    }
-//
-//    public String getUsername() {
-//        return username;
-//    }
-//
-//    public void setUsername(String username) {
-//        this.username = username;
-//    }
-//
-//    public String getPassword() {
-//        return password;
-//    }
-//
-//    public void setPassword(String password) {
-//        this.password = password;
-//    }
-//
-//    public String getFirstname() {
-//        return firstname;
-//    }
-//
-//    public void setFirstname(String firstname) {
-//        this.firstname = firstname;
-//    }
-//
-//    public String getLastname() {
-//        return lastname;
-//    }
-//
-//    public void setLastname(String lastname) {
-//        this.lastname = lastname;
-//    }
-////
-//    public LocalDate getDob() {
-//        return dob;
-//    }
-//
-//    public void setDob(LocalDate dob) {
-//        this.dob = dob;
-//    }
+    @Column(nullable = false)
+    private String password; // Encrypted password for the user
+
+    @Column(unique = true, nullable = false)
+    private String email; // Unique email address for the user
+
+    @Column(name = "first_name")
+    private String firstname; // User's first name
+
+    @Column(name = "last_name")
+    private String lastname; // User's last name
+
+    @Column(name = "date_of_birth")
+    private LocalDate dob; // User's date of birth
+
+    @Column(nullable = false)
+    private String role; // Role assigned to the user (e.g., Admin, Customer)
 }
-
-
